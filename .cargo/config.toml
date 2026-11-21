@@ -1,0 +1,2 @@
+[build]
+rustflags = ["-L", "/home/hj/.codex-relay-home-rn2q2f5x/sysroot/usr/lib/x86_64-linux-gnu"]
