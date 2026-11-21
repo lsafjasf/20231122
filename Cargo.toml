@@ -1,0 +1,15 @@
+[package]
+name = "ditherdiag"
+version = "0.1.0"
+edition = "2021"
+description = "Replayable experiment harness for audio export dithering diagnosis (Rust + GStreamer + GTK4)"
+
+[dependencies]
+gstreamer = "0.24"
+gtk4 = { version = "0.10", features = ["v4_14"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+debug = true
