@@ -1,0 +1,17 @@
+[package]
+name = "plc-eval"
+version = "0.1.0"
+edition = "2021"
+description = "Offline packet-loss concealment (PLC) evaluation tool: silence / repeat / interpolation strategies"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+
+[lib]
+name = "plc_eval"
+path = "src/lib.rs"
+
+[[bin]]
+name = "plc-eval"
+path = "src/main.rs"

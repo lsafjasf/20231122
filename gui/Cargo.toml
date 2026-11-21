@@ -1,0 +1,15 @@
+[package]
+name = "plc-eval-gui"
+version = "0.1.0"
+edition = "2021"
+description = "GTK4 + GStreamer front-end for the plc-eval offline PLC evaluation tool"
+
+[dependencies]
+plc-eval = { path = ".." }
+anyhow = "1"
+gtk4 = "0.9"
+gstreamer = "0.23"
+
+# This crate is intentionally NOT part of the root package: it needs the
+# system GTK4 / GStreamer development packages (libgtk-4-dev,
+# libgstreamer1.0-dev, libgstreamer-plugins-base1.0-dev) to build.
