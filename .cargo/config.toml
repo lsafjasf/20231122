@@ -1,0 +1,18 @@
+# Local sysroot built from Ubuntu .debs (no root available on this machine).
+# Keeps `cargo build/test/run` working without sourcing scripts/env.sh.
+[env]
+PKG_CONFIG = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/bin/pkg-config"
+PKG_CONFIG_SYSROOT_DIR = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/root"
+PKG_CONFIG_PATH = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/root/usr/lib/x86_64-linux-gnu/pkgconfig:/home/hj/.codex-relay-home-jdfvng3h/sysroot/root/usr/share/pkgconfig"
+LD_LIBRARY_PATH = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/root/usr/lib/x86_64-linux-gnu"
+GST_PLUGIN_PATH = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/root/usr/lib/x86_64-linux-gnu/gstreamer-1.0"
+GST_PLUGIN_SYSTEM_PATH = ""
+GST_PLUGIN_SCANNER = "/home/hj/.codex-relay-home-jdfvng3h/sysroot/bin/gst-plugin-scanner"
+
+[build]
+# RPATH (not RUNPATH, via --disable-new-dtags) so dlopen'ed GStreamer
+# plugins also resolve their dependencies from the local sysroot.
+rustflags = [
+    "-C", "link-args=-Wl,--disable-new-dtags",
+    "-C", "link-args=-Wl,-rpath,/home/hj/.codex-relay-home-jdfvng3h/sysroot/root/usr/lib/x86_64-linux-gnu",
+]
