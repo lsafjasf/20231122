@@ -1,0 +1,45 @@
+[package]
+name = "audio-repair-studio"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+description = "Reproducible audio repair version management with Rust, GStreamer and GTK4"
+license = "MIT"
+
+[lib]
+name = "audio_repair"
+path = "src/lib.rs"
+
+[[bin]]
+name = "audio-repair-cli"
+path = "src/bin/cli.rs"
+required-features = ["media"]
+
+[[bin]]
+name = "audio-repair-gui"
+path = "src/bin/gui.rs"
+required-features = ["gui", "media"]
+
+[features]
+default = ["media", "gui"]
+media = ["dep:gstreamer", "dep:gstreamer-app"]
+gui = ["dep:gtk4"]
+
+[dependencies]
+anyhow = "1"
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+thiserror = "2"
+gstreamer = { version = "0.25", optional = true }
+gstreamer-app = { version = "0.25", optional = true }
+gtk4 = { version = "0.11", features = ["v4_10"], optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+strip = true
+
