@@ -1,0 +1,494 @@
+window {
+  background: #0b1015;
+  color: #e8eef4;
+  font-family: "Droid Sans Fallback", "Noto Sans CJK SC", sans-serif;
+  font-size: 14px;
+}
+
+headerbar {
+  background: #0b1015;
+  border-bottom: 1px solid #202a33;
+  box-shadow: none;
+  min-height: 54px;
+  padding: 0 12px;
+}
+
+headerbar windowcontrols button {
+  background: transparent;
+  color: #95a3ae;
+  border: none;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.sidebar {
+  background: #090d11;
+  border-right: 1px solid #1c252d;
+  padding: 22px 16px 16px;
+}
+
+.brand-mark {
+  background: #c9ff48;
+  color: #0b1015;
+  border-radius: 10px;
+  min-width: 34px;
+  min-height: 34px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.brand-sub {
+  color: #7f8d98;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.nav-label {
+  color: #5f6d78;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 22px 8px 7px;
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  color: #93a0ab;
+  padding: 9px 11px;
+  min-height: 24px;
+}
+
+.nav-item:hover {
+  background: #131b22;
+  color: #e8eef4;
+}
+
+.nav-item.active {
+  background: #19231c;
+  color: #c9ff48;
+  font-weight: 700;
+}
+
+.recovery-card {
+  background: #101820;
+  border: 1px solid #22303a;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.dot-green {
+  background: #4de1c1;
+  border-radius: 10px;
+  min-width: 7px;
+  min-height: 7px;
+}
+
+.dot-red {
+  background: #ff6b57;
+  border-radius: 10px;
+  min-width: 7px;
+  min-height: 7px;
+}
+
+.main-area {
+  background: #0b1015;
+}
+
+.breadcrumb {
+  color: #76848f;
+  font-size: 12px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f1f5f8;
+}
+
+.page-subtitle {
+  color: #83919c;
+  font-size: 12px;
+}
+
+.card {
+  background: #111820;
+  border: 1px solid #202b35;
+  border-radius: 14px;
+}
+
+.card-tight {
+  background: #10171e;
+  border: 1px solid #202b35;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #eaf0f5;
+}
+
+.section-kicker {
+  color: #7c8a95;
+  font-size: 11px;
+}
+
+.muted {
+  color: #7f8d98;
+  font-size: 11px;
+}
+
+.tiny {
+  color: #667480;
+  font-size: 10px;
+}
+
+.metric {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f4f8fa;
+}
+
+.metric-small {
+  font-size: 13px;
+  font-weight: 800;
+  color: #eef3f6;
+}
+
+.accent-text {
+  color: #c9ff48;
+}
+
+.teal-text {
+  color: #4de1c1;
+}
+
+.danger-text {
+  color: #ff7a67;
+}
+
+.amber-text {
+  color: #f9c74f;
+}
+
+button.primary {
+  background: #c9ff48;
+  color: #0b1015;
+  border: none;
+  border-radius: 9px;
+  font-weight: 800;
+  padding: 9px 16px;
+  min-height: 26px;
+}
+
+button.primary:hover {
+  background: #d7ff76;
+}
+
+button.secondary {
+  background: #18222b;
+  color: #dbe4ea;
+  border: 1px solid #2a3742;
+  border-radius: 9px;
+  font-weight: 700;
+  padding: 8px 13px;
+  min-height: 24px;
+}
+
+button.secondary:hover {
+  background: #202c36;
+  border-color: #3a4a56;
+}
+
+button.ghost {
+  background: transparent;
+  color: #8f9ca7;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 5px 8px;
+  min-height: 20px;
+  font-size: 11px;
+}
+
+button.ghost:hover {
+  background: #1a242d;
+  color: #e8eef4;
+}
+
+button.danger-ghost {
+  background: #241719;
+  color: #ff9b8d;
+  border: 1px solid #48272a;
+  border-radius: 7px;
+  padding: 5px 9px;
+  min-height: 20px;
+  font-size: 11px;
+}
+
+.pill {
+  border-radius: 99px;
+  padding: 3px 9px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.pill-ready {
+  background: #132b26;
+  color: #56e5c6;
+}
+
+.pill-warning {
+  background: #2c2115;
+  color: #ffc55c;
+}
+
+.pill-idle {
+  background: #192128;
+  color: #84929d;
+}
+
+.pill-running {
+  background: #152a35;
+  color: #66d8ff;
+}
+
+.pill-interrupted {
+  background: #2a1a20;
+  color: #ff9d8f;
+}
+
+.pill-failed {
+  background: #35181a;
+  color: #ff7d6e;
+}
+
+.pill-missing {
+  background: #2b1b1d;
+  color: #ff8e7e;
+  border: 1px solid #4c292b;
+}
+
+.pill-param {
+  background: #1a2421;
+  color: #c9ff48;
+  border: 1px solid #31422c;
+}
+
+.segment-row {
+  background: transparent;
+  border-bottom: 1px solid #1b252e;
+  padding: 7px 8px;
+  border-radius: 8px;
+}
+
+.segment-row:hover {
+  background: #141d25;
+}
+
+.segment-row.selected {
+  background: #151f20;
+  border: 1px solid #35462c;
+}
+
+.segment-index {
+  background: #19232b;
+  border-radius: 8px;
+  color: #aebbc5;
+  font-weight: 800;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.segment-index.missing {
+  background: #321d20;
+  color: #ff998a;
+}
+
+.segment-name {
+  color: #e9eff3;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.segment-time {
+  color: #6f7d88;
+  font-size: 10px;
+}
+
+.param-tile {
+  background: #0d141a;
+  border: 1px solid #202b34;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+
+.param-name {
+  color: #84929d;
+  font-size: 10px;
+}
+
+.param-value {
+  color: #eef3f6;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+spinbutton {
+  background: #0b1117;
+  color: #eef3f6;
+  border: 1px solid #26343e;
+  border-radius: 7px;
+  padding: 2px 4px;
+}
+
+spinbutton text {
+  color: #eef3f6;
+  min-width: 58px;
+}
+
+spinbutton button {
+  background: transparent;
+  color: #7c8b96;
+  border: none;
+  min-width: 20px;
+}
+
+.preset,
+button.preset,
+button.text-button.preset {
+  background-image: none;
+  box-shadow: none;
+  background-color: #121b22;
+  border: 1px solid #26343e;
+  border-radius: 99px;
+  color: #93a1ac;
+  padding: 4px 12px;
+  font-size: 11px;
+  min-height: 20px;
+}
+
+.preset:checked,
+button.preset:checked,
+button.text-button.preset:checked {
+  background-image: none;
+  box-shadow: none;
+  background-color: #22301f;
+  border-color: #4d672b;
+  color: #c9ff48;
+}
+
+.divider-v {
+  background: #202b35;
+  min-width: 1px;
+}
+
+.divider-h {
+  background: #202b35;
+  min-height: 1px;
+}
+
+.wave-wrap {
+  background: #0a1015;
+  border: 1px solid #1e2a33;
+  border-radius: 10px;
+}
+
+.evidence-panel {
+  background: #0e151b;
+  border-left: 1px solid #1f2a33;
+}
+
+.evidence-card {
+  background: #121a21;
+  border: 1px solid #23303a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.boundary-cell {
+  background: #0d141a;
+  border: 1px solid #202b34;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.boundary-label {
+  color: #7e8c97;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.delta-positive {
+  color: #4de1c1;
+}
+
+.delta-negative {
+  color: #ff8b7b;
+}
+
+.trail-line {
+  background: #27343e;
+  min-width: 2px;
+}
+
+.trail-dot {
+  background: #c9ff48;
+  border-radius: 10px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+.statusbar {
+  background: #090e12;
+  border-top: 1px solid #1d2730;
+  padding: 6px 14px;
+}
+
+.status-dot {
+  background: #4de1c1;
+  border-radius: 10px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+.status-dot.busy {
+  background: #c9ff48;
+}
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: #2f3c46;
+  border-radius: 10px;
+  min-width: 5px;
+  min-height: 5px;
+}
+
+.dialog-window {
+  background: #0e151b;
+}
+
+.dialog-card {
+  background: #111920;
+  border: 1px solid #24313b;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.toast {
+  background: #1b281f;
+  color: #d9ff9b;
+  border: 1px solid #405b28;
+  border-radius: 9px;
+  padding: 7px 12px;
+}
