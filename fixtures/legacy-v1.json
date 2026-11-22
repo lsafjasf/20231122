@@ -1,0 +1,61 @@
+{
+  "file": "fixtures/studio-take.recx",
+  "fps": 30.0,
+  "frames": [
+    {
+      "frame_number": 0,
+      "luma": 0.18,
+      "present": true,
+      "timestamp_ms": 0
+    },
+    {
+      "frame_number": 1,
+      "luma": 0.22,
+      "present": true,
+      "timestamp_ms": 33
+    },
+    {
+      "frame_number": 2,
+      "luma": 0.27,
+      "present": true,
+      "timestamp_ms": 67
+    },
+    {
+      "frame_number": 3,
+      "luma": 0.32,
+      "present": true,
+      "timestamp_ms": 100
+    },
+    {
+      "frame_number": 4,
+      "lost": true,
+      "timestamp_ms": 133
+    },
+    {
+      "frame_number": 5,
+      "lost": true,
+      "timestamp_ms": 167
+    },
+    {
+      "frame_number": 6,
+      "luma": 0.42,
+      "present": true,
+      "timestamp_ms": 200
+    }
+  ],
+  "notes": [
+    "imported from the 2023 field recorder volume",
+    "unknown .recx extension is preserved"
+  ],
+  "params": {
+    "after": 1,
+    "before": 1,
+    "confidence": 0.55,
+    "max_gap": 3,
+    "mix": 0.35,
+    "mode": "blend"
+  },
+  "project": "studio-frame-loss-review",
+  "track_id": "video-main",
+  "version": 1
+}
