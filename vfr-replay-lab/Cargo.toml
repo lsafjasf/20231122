@@ -1,0 +1,34 @@
+[package]
+name = "vfr-replay-lab"
+version = "0.1.0"
+edition = "2021"
+description = "Replayable variable-frame-rate clip preview experiment (Rust + GStreamer + GTK4)"
+
+[lib]
+name = "vfr_replay_lab"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vfr-lab"
+path = "src/bin/lab.rs"
+required-features = ["gst"]
+
+[[bin]]
+name = "vfr-gtk"
+path = "src/bin/gtk.rs"
+required-features = ["gtk"]
+
+[features]
+default = ["gst"]
+# Pure replay core has no native deps; gst/gtk are additive layers.
+gst = ["dep:gstreamer", "dep:gstreamer-app", "dep:gstreamer-video"]
+gtk = ["gst", "dep:gtk4"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+gstreamer = { version = "0.25", optional = true }
+gstreamer-app = { version = "0.25", optional = true }
+gstreamer-video = { version = "0.25", optional = true }
+gtk4 = { version = "0.11", optional = true }

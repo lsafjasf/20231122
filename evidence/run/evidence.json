@@ -1,0 +1,162 @@
+{
+  "final_state": {
+    "fps_den": 1,
+    "fps_num": 60,
+    "library": [
+      {
+        "id": "vfr-1",
+        "pts_ns": [
+          0,
+          33000000,
+          66000000,
+          133000000,
+          166000000,
+          199000000,
+          266000000
+        ],
+        "uri": "file:///home/hj/userfeedback/uid4-0020/vfr-replay-lab/../evidence/run/vfr_sample.webm"
+      },
+      {
+        "id": "bumper",
+        "pts_ns": [
+          0,
+          41666667,
+          83333334
+        ],
+        "uri": "file:///fixture/bumper.webm"
+      }
+    ],
+    "placed": [
+      "vfr-1",
+      "bumper"
+    ],
+    "revision": 9,
+    "timeline": [
+      null,
+      "vfr-1"
+    ]
+  },
+  "fixture_pts_ns": [
+    0,
+    33000000,
+    66000000,
+    133000000,
+    166000000,
+    199000000,
+    266000000
+  ],
+  "journal_entries": 10,
+  "media": {
+    "preview_at_24fps": {
+      "error": null,
+      "frames_in": 7,
+      "frames_out": 8,
+      "observed_pts_ns": [
+        0,
+        33000000,
+        66000000,
+        133000000,
+        166000000,
+        199000000,
+        266000000
+      ],
+      "output_pts_ns": [
+        0,
+        41666666,
+        83333333,
+        125000000,
+        166666666,
+        208333333,
+        250000000,
+        291666666
+      ],
+      "success": true
+    },
+    "preview_at_60fps": {
+      "error": null,
+      "frames_in": 7,
+      "frames_out": 17,
+      "observed_pts_ns": [
+        0,
+        33000000,
+        66000000,
+        133000000,
+        166000000,
+        199000000,
+        266000000
+      ],
+      "output_pts_ns": [
+        0,
+        16666666,
+        33333333,
+        50000000,
+        66666666,
+        83333333,
+        100000000,
+        116666666,
+        133333333,
+        150000000,
+        166666666,
+        183333333,
+        200000000,
+        216666666,
+        233333333,
+        250000000,
+        266666666
+      ],
+      "success": true
+    }
+  },
+  "probed_pts_ns": [
+    0,
+    33000000,
+    66000000,
+    133000000,
+    166000000,
+    199000000,
+    266000000
+  ],
+  "replay": {
+    "chain_ok": true,
+    "final_state": {
+      "fps_den": 1,
+      "fps_num": 60,
+      "library": [
+        {
+          "id": "vfr-1",
+          "pts_ns": [
+            0,
+            33000000,
+            66000000,
+            133000000,
+            166000000,
+            199000000,
+            266000000
+          ],
+          "uri": "file:///home/hj/userfeedback/uid4-0020/vfr-replay-lab/../evidence/run/vfr_sample.webm"
+        },
+        {
+          "id": "bumper",
+          "pts_ns": [
+            0,
+            41666667,
+            83333334
+          ],
+          "uri": "file:///fixture/bumper.webm"
+        }
+      ],
+      "placed": [
+        "vfr-1",
+        "bumper"
+      ],
+      "revision": 9,
+      "timeline": [
+        null,
+        "vfr-1"
+      ]
+    },
+    "outcome_divergences": [],
+    "state_divergences": [],
+    "steps_replayed": 10
+  }
+}
