@@ -1,0 +1,18 @@
+[package]
+name = "segment-fingerprint-gtk"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "GTK4 control surface for the pausable segment fingerprint pipeline"
+
+[[bin]]
+name = "segment-fingerprint-gtk"
+path = "src/main.rs"
+
+[dependencies]
+segment-fingerprint-core = { path = "../core" }
+gtk4.workspace = true
+glib.workspace = true
+anyhow.workspace = true
+serde_json.workspace = true

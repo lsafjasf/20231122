@@ -1,0 +1,17 @@
+[package]
+name = "segment-fingerprint-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Command line front-end for the segment fingerprint pipeline"
+
+[[bin]]
+name = "segment-fingerprint"
+path = "src/main.rs"
+
+[dependencies]
+segment-fingerprint-core = { path = "../core" }
+clap.workspace = true
+anyhow.workspace = true
+serde_json.workspace = true

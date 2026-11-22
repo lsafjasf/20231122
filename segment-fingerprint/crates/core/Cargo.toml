@@ -1,0 +1,17 @@
+[package]
+name = "segment-fingerprint-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Pausable segment content fingerprint pipeline with clock-skew alignment (core library)"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+gstreamer.workspace = true
+gstreamer-app.workspace = true
+glib.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true

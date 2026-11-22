@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib/x86_64-linux-gnu
+
+Name: pciaccess
+Description: Library providing generic access to the PCI bus and devices
+Version: 0.18.1
+Requires.private: zlib
+Libs: -L${libdir} -lpciaccess
+Cflags: -I${includedir}

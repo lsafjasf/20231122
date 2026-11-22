@@ -1,0 +1,11 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib/x86_64-linux-gnu
+
+Name: harfbuzz-subset
+Description: HarfBuzz font subsetter
+Version: 12.3.2
+Requires: harfbuzz =  12.3.2
+Libs: -L${libdir} -lharfbuzz-subset
+Libs.private: -lm
+Cflags: -I${includedir}/harfbuzz
