@@ -1,0 +1,26 @@
+[package]
+name = "credits-layout"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Safe-area aware end-credit typesetter with Rust, GTK4 and GStreamer"
+
+[lib]
+name = "credits_layout"
+path = "src/lib.rs"
+
+[[bin]]
+name = "credits-layout"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+gstreamer = "0.25"
+gstreamer-app = "0.25"
+gtk4 = { version = "0.11", features = ["v4_10"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+lto = "thin"
+strip = true
