@@ -1,0 +1,20 @@
+{
+  "schema": "tempo-pitch-scenario/1",
+  "name": "curve-limit-rejected",
+  "audio": "../missing_segment/original.wav",
+  "speed_curve": "../missing_segment/speed_curve.csv",
+  "pitch_track": "../missing_segment/pitch_trajectory.csv",
+  "output_dir": "../../artifacts/limit-rejected",
+  "analysed_channel": 0,
+  "window_us": 20000,
+  "render_quantum_us": 100000,
+  "pitch_gap_threshold_us": 200000,
+  "limits": {
+    "max_audio_bytes": 536870912,
+    "max_curve_bytes": 67108864,
+    "max_curve_points": 10,
+    "max_timeline_entries": 100000,
+    "max_render_segments": 20000,
+    "max_decoded_pcm_bytes": 4294967296
+  }
+}

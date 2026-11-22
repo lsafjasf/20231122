@@ -1,0 +1,16 @@
+{
+  "schema": "tempo-pitch-scenario/1",
+  "name": "missing-pitch-segment",
+  "audio": "original.wav",
+  "speed_curve": "speed_curve.csv",
+  "pitch_track": "pitch_trajectory.csv",
+  "output_dir": "../../artifacts/missing-segment",
+  "analysed_channel": 0,
+  "window_us": 20000,
+  "render_quantum_us": 100000,
+  "pitch_gap_threshold_us": 200000,
+  "missing_span": {
+    "start_us": 1250000,
+    "end_us": 1500000
+  }
+}
