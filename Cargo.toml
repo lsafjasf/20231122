@@ -1,0 +1,13 @@
+[package]
+name = "loop-joiner"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gtk4 = { version = "0.10", features = ["v4_10"] }
+cairo-rs = { version = "0.21", features = ["png"] }
+gstreamer = "0.24"
+gstreamer-app = "0.24"
+
+[profile.release]
+opt-level = 2
