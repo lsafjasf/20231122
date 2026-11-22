@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "version": "v1",
+  "label": "decode ordinal snapshot",
+  "address_policy": "decode-ordinal",
+  "frames": [
+    {
+      "object_id": "gop0-i0",
+      "frame_kind": "i",
+      "pts_ns": 0,
+      "dts_ns": 0,
+      "duration_ns": 1000000000,
+      "references": [],
+      "payload": "I-frame|scene=alpha|slot=0",
+      "checksum": "df613ef29bb385163cea14a40132314f8dd96da511a6008ce179c2c626083397"
+    },
+    {
+      "object_id": "gop0-p3",
+      "frame_kind": "p",
+      "pts_ns": 3000000000,
+      "dts_ns": 1000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop0-i0"],
+      "payload": "P-frame|scene=alpha|slot=3",
+      "checksum": "29300a7553b865f44747de19012211655b23c7a20fb03c2341a81040c14e8351"
+    },
+    {
+      "object_id": "gop0-b1",
+      "frame_kind": "b",
+      "pts_ns": 1000000000,
+      "dts_ns": 2000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop0-i0", "gop0-p3"],
+      "payload": "B-frame|scene=alpha|slot=1",
+      "checksum": "a2a860c14f2455a3856f47751ccc8c29124965cb9cd72438857933b530c1e501"
+    },
+    {
+      "object_id": "gop0-b2",
+      "frame_kind": "b",
+      "pts_ns": 2000000000,
+      "dts_ns": 3000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop0-i0", "gop0-p3"],
+      "payload": "B-frame|scene=alpha|slot=2",
+      "checksum": "489fd690cc8cfc27a6ca016d61ba38a12cd4c8056c7168bb5a692cf97987e6d5"
+    },
+    {
+      "object_id": "gop1-i4",
+      "frame_kind": "i",
+      "pts_ns": 4000000000,
+      "dts_ns": 4000000000,
+      "duration_ns": 1000000000,
+      "references": [],
+      "payload": "I-frame|scene=beta|slot=4",
+      "checksum": "99a9a35baed57dc4365a1fcb1b24fc1aab79e3634a07faaadc3e00ea97f90b8a"
+    },
+    {
+      "object_id": "gop1-p7",
+      "frame_kind": "p",
+      "pts_ns": 7000000000,
+      "dts_ns": 5000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop1-i4"],
+      "payload": "P-frame|scene=beta|slot=7",
+      "checksum": "d988b81fa3ac7fe9e32b460e3b5c70e1ddc2b99e44f1d1b5a14dd61b8b61c2dd"
+    },
+    {
+      "object_id": "gop1-b5",
+      "frame_kind": "b",
+      "pts_ns": 5000000000,
+      "dts_ns": 6000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop1-i4", "gop1-p7"],
+      "payload": "B-frame|scene=beta|slot=5",
+      "checksum": "0a3439fd1bd3dc1f5b60c0071ca59c298b983a75892ab3fb78018cd96d210961"
+    },
+    {
+      "object_id": "gop1-b6",
+      "frame_kind": "b",
+      "pts_ns": 6000000000,
+      "dts_ns": 7000000000,
+      "duration_ns": 1000000000,
+      "references": ["gop1-i4", "gop1-p7"],
+      "payload": "B-frame|scene=beta|slot=6",
+      "checksum": "ec656d6312ea3b61f233226b64b0de321e68d226c5315fb895e6a85b1917ba48"
+    }
+  ]
+}

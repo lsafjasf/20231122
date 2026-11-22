@@ -1,0 +1,38 @@
+[package]
+name = "bframe-addressing-lab"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Replayable B-frame addressing experiment with GTK4 and GStreamer"
+license = "MIT"
+
+[features]
+default = ["gui", "gst"]
+gui = ["dep:gtk4"]
+gst = ["dep:gstreamer", "dep:gstreamer-app"]
+
+[dependencies]
+anyhow = "1.0"
+gstreamer = { version = "0.24", optional = true }
+gstreamer-app = { version = "0.24", optional = true }
+gtk4 = { version = "0.10", optional = true }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.20"
+
+[[bin]]
+name = "bframe-lab"
+path = "src/bin/bframe_gui.rs"
+required-features = ["gui", "gst"]
+
+[[bin]]
+name = "bframe-evidence"
+path = "src/bin/bframe_evidence.rs"
+
+[profile.release]
+lto = "thin"
+strip = true

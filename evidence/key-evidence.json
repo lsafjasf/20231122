@@ -1,0 +1,275 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "addresses_equal": false,
+        "changed_b_frames": {
+          "gop0-b1": {
+            "baseline": "D002",
+            "reordered": "D001"
+          },
+          "gop0-b2": {
+            "baseline": "D003",
+            "reordered": "D002"
+          },
+          "gop1-b5": {
+            "baseline": "D006",
+            "reordered": "D005"
+          },
+          "gop1-b6": {
+            "baseline": "D007",
+            "reordered": "D006"
+          }
+        }
+      },
+      "expected": {
+        "addresses_equal": false,
+        "gop0-b1_changes": true
+      },
+      "id": "v1-order-changes-b-addresses",
+      "note": "decode-ordinal addresses are tied to submission order",
+      "passed": true
+    },
+    {
+      "actual": {
+        "addresses_equal": true,
+        "baseline": {
+          "gop0-b1": "P1000000000",
+          "gop0-b2": "P2000000000",
+          "gop1-b5": "P5000000000",
+          "gop1-b6": "P6000000000"
+        },
+        "reordered": {
+          "gop0-b1": "P1000000000",
+          "gop0-b2": "P2000000000",
+          "gop1-b5": "P5000000000",
+          "gop1-b6": "P6000000000"
+        }
+      },
+      "expected": {
+        "addresses_equal": true
+      },
+      "id": "v2-order-is-stable",
+      "note": "PTS-derived addresses do not depend on submission order",
+      "passed": true
+    },
+    {
+      "actual": {
+        "accepted": 8,
+        "conflict_seq": 6,
+        "conflict_state_unchanged": true,
+        "conflicts": 1,
+        "duplicate_seq": 5,
+        "duplicate_state_unchanged": true,
+        "duplicates": 1
+      },
+      "expected": {
+        "accepted": 8,
+        "conflict_state_unchanged": true,
+        "conflicts": 1,
+        "duplicate_state_unchanged": true,
+        "duplicates": 1
+      },
+      "id": "duplicate-and-conflict-are-idempotent",
+      "note": "a duplicate is a no-op; a conflicting reuse of object_id is rejected without mutation",
+      "passed": true
+    },
+    {
+      "actual": {
+        "accepted": 4,
+        "accepted_after_invalid": [
+          "gop0-b1",
+          "gop0-b2"
+        ],
+        "invalid": 1,
+        "invalid_category": "truncated_json",
+        "truncated_seq": 4
+      },
+      "expected": {
+        "accepted": 4,
+        "accepted_after_invalid": [
+          "gop0-b1",
+          "gop0-b2"
+        ],
+        "invalid": 1,
+        "invalid_category": "truncated_json"
+      },
+      "id": "truncated-control-is-isolated",
+      "note": "the truncated JSON line fails alone; the following valid B frames still enter the index",
+      "passed": true
+    },
+    {
+      "actual": {
+        "all_scenarios_match": true,
+        "scenarios": [
+          {
+            "checked_entries": 10,
+            "id": "baseline-v1",
+            "journal_digest": "d7b4e39773326ce50318a906bdaf70af072802d93b05ab02fd09de401e12315f",
+            "matched": true
+          },
+          {
+            "checked_entries": 10,
+            "id": "baseline-v2",
+            "journal_digest": "2dcbb516cbbd00d19d9f459b75a732f2fbff32eb3df86bdacae03118eae367ed",
+            "matched": true
+          },
+          {
+            "checked_entries": 10,
+            "id": "reordered-v1",
+            "journal_digest": "90d735f5205aaa2998aebe7d9b3105634b585211aea83b23c415513bc6896b5e",
+            "matched": true
+          },
+          {
+            "checked_entries": 10,
+            "id": "reordered-v2",
+            "journal_digest": "c42cca843e85342a977578c721c81ddc924c28f0f5d21947a6421a4a6dea2bae",
+            "matched": true
+          },
+          {
+            "checked_entries": 12,
+            "id": "duplicates-v2",
+            "journal_digest": "0ad1d21f21efb179c22fc4c9f560758515ed26de588301b45c3a17cd505bd0c9",
+            "matched": true
+          },
+          {
+            "checked_entries": 7,
+            "id": "truncated-v2",
+            "journal_digest": "165ef7642c0f9bc2fb173e1b6598b23569677270e89bb649facb8c79b99d532f",
+            "matched": true
+          }
+        ]
+      },
+      "expected": {
+        "all_scenarios_match": true
+      },
+      "id": "journals-replay-exactly",
+      "note": "staged JSONL is replayed from disk and every state digest/result is recomputed",
+      "passed": true
+    },
+    {
+      "actual": {
+        "complete": true,
+        "entry_count": 59
+      },
+      "expected": {
+        "complete": true
+      },
+      "id": "every-step-has-input-state-result",
+      "note": "each JSONL entry contains input, before-state, result, and after-state digests",
+      "passed": true
+    },
+    {
+      "actual": {
+        "residual_entries": 0,
+        "staged_bytes": 162844,
+        "staged_files": 6,
+        "temporary_directory_removed": true
+      },
+      "expected": {
+        "residual_entries": 0,
+        "temporary_directory_removed": true
+      },
+      "id": "temporary-state-is-cleaned",
+      "note": "journals are staged and replayed from a temporary directory, then removed",
+      "passed": true
+    },
+    {
+      "actual": {
+        "error": null,
+        "expected_frames": 8,
+        "initialized": true,
+        "observed_frames": 8,
+        "pipeline": "appsrc ! fakesink",
+        "plugins_available": true,
+        "roundtrip_passed": true,
+        "timestamps_preserved": true,
+        "version": "GStreamer 1.28.2"
+      },
+      "expected": {
+        "initialized": true,
+        "roundtrip_if_plugins_available": true
+      },
+      "id": "gstreamer-pipeline-integrity",
+      "note": "GStreamer initialized and, when app/coreelements are present, the appsrc ! fakesink probe verified PTS/DTS passthrough",
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "residual_entries": 0,
+    "staged_bytes": 162844,
+    "staged_files": 6,
+    "temporary_directory_removed": true
+  },
+  "fixtures": {
+    "v1": {
+      "frame_count": 8,
+      "label": "decode ordinal snapshot",
+      "path": "fixtures/snapshots/v1.json",
+      "policy": "decode-ordinal",
+      "sha256": "0a8e1ea80ec63254465ad4cf80db932b28870a945da67439d8c4b8695ff20216",
+      "version": "v1"
+    },
+    "v2": {
+      "frame_count": 8,
+      "label": "stable presentation timestamp snapshot",
+      "path": "fixtures/snapshots/v2.json",
+      "policy": "pts-stable",
+      "sha256": "5846e4736e219fea503538a0657cde7693f002a92e931224916c173bed8b27f1",
+      "version": "v2"
+    }
+  },
+  "gstreamer": {
+    "appsrc_available": true,
+    "error": null,
+    "expected_frames": 8,
+    "fakesink_available": true,
+    "initialized": true,
+    "observed": [
+      {
+        "dts_ns": 0,
+        "pts_ns": 0,
+        "size": 384
+      },
+      {
+        "dts_ns": 1000000000,
+        "pts_ns": 3000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 2000000000,
+        "pts_ns": 1000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 3000000000,
+        "pts_ns": 2000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 4000000000,
+        "pts_ns": 4000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 5000000000,
+        "pts_ns": 7000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 6000000000,
+        "pts_ns": 5000000000,
+        "size": 384
+      },
+      {
+        "dts_ns": 7000000000,
+        "pts_ns": 6000000000,
+        "size": 384
+      }
+    ],
+    "observed_frames": 8,
+    "pipeline": "appsrc ! fakesink",
+    "timestamps_preserved": true,
+    "version": "GStreamer 1.28.2"
+  }
+}
