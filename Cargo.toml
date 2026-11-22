@@ -1,0 +1,19 @@
+[package]
+name = "color-sample-flow"
+version = "0.1.0"
+edition = "2021"
+description = "Pausable video screenshot color sampling with Rust, GStreamer and GTK4"
+
+[dependencies]
+anyhow = "1"
+gstreamer = "0.25"
+gstreamer-app = "0.25"
+gtk4 = "0.11"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+time = { version = "0.3", features = ["formatting"] }
+
+[profile.release]
+debug = true
+

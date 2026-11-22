@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "original_path": "/home/hj/userfeedback/uid4-0035/originals/source.mkv",
+  "sha256": "6edaca1f234675eac87f1b50db43cb5505f29d6af52f80e1e3aed603eb469b6c",
+  "size_bytes": 13004140,
+  "width": 320,
+  "height": 240,
+  "duration_ms": 6000,
+  "frame_rate": "10/1",
+  "immutable": true,
+  "recipe": "Rust deterministic RGB24 frames -> ffmpeg png encoder -> Matroska; 320x240 at 10 fps for 6 s",
+  "created_at": "2026-11-22T04:38:56.205160335Z"
+}

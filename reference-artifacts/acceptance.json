@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "original_integrity",
+      "ok": true,
+      "detail": "sha256 eb915216527389a66ceb95c557e83086d2f489dfb8e3f14e57cbb473c586c899 (recorded eb915216527389a66ceb95c557e83086d2f489dfb8e3f14e57cbb473c586c899)"
+    },
+    {
+      "name": "completeness_and_anchors",
+      "ok": true,
+      "detail": "25 samples, first ts=0ms off=0, last ts=5900ms off=115680"
+    },
+    {
+      "name": "pause_resume_equivalence",
+      "ok": true,
+      "detail": "all 25 samples identical between pause/resume and fresh pass"
+    },
+    {
+      "name": "ffmpeg_oracle",
+      "ok": true,
+      "detail": "skipped (degraded scale 25% changes effective pixels)"
+    },
+    {
+      "name": "pause_resume_evidence",
+      "ok": true,
+      "detail": "paused events: true, resumed events: true"
+    }
+  ]
+}

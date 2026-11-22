@@ -1,0 +1,17 @@
+{
+  "root": "/home/hj/userfeedback/uid4-0035",
+  "B": "/home/hj/userfeedback/uid4-0035",
+  "sha": "e10cfeed39780a7a1ca97dca82ef78153ac459e4",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "lsafjasf",
+    "repo": "20231122",
+    "sha": "e10cfeed39780a7a1ca97dca82ef78153ac459e4"
+  },
+  "fork": {
+    "owner": "lsafjasf",
+    "repo": "20231122",
+    "cloneUrl": "https://github.com/lsafjasf/20231122.git"
+  },
+  "at": "2026-11-22T03:39:34.140Z"
+}
