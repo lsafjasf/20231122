@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "id": "LEG-001",
+      "file": "vocals.wav",
+      "track": "vocals",
+      "frame": 0,
+      "closed": true,
+      "end_time": 5.0
+    },
+    {
+      "id": "LEG-002-TRUNC",
+      "file": "mic.wav",
+      "track": "mic",
+      "frame": 1280
+    }
+  ]
+}
