@@ -1,0 +1,23 @@
+[package]
+name = "srcrepair"
+version = "0.1.0"
+edition = "2021"
+description = "Audio sample-rate conversion local repair tool with per-fragment rerun, evidence and reviewable exports"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+chrono = { version = "0.4", features = ["clock", "serde"] }
+anyhow = "1"
+thiserror = "2"
+
+gstreamer = "0.24"
+gstreamer-base = "0.24"
+gstreamer-audio = "0.24"
+gstreamer-pbutils = "0.24"
+gtk4 = "0.10"
+glib = "0.21"
+
+[profile.release]
+lto = "thin"

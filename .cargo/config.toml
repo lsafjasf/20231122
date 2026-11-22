@@ -1,0 +1,6 @@
+[http]
+multiplexing = false
+proxy = ""
+
+[net]
+git-fetch-with-cli = true
