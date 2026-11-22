@@ -1,0 +1,24 @@
+[package]
+name = "mp4-integrity"
+version = "0.1.0"
+edition = "2021"
+description = "ISO-BMFF/MP4 container integrity checker with GTK4 UI and GStreamer re-validation"
+
+[lib]
+name = "mp4_integrity_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mp4-integrity"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+thiserror = "2.0.21"
+clap = { version = "4.6.9", features = ["derive"] }
+glib = "0.22.11"
+gstreamer = "0.25.4"
+gtk4 = "0.11.5"
+
+[profile.release]
+opt-level = 2
