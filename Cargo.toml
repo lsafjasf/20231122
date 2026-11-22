@@ -1,0 +1,25 @@
+[package]
+name = "syncwall-inspector"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gstreamer = "0.23"
+gstreamer-app = "0.23"
+gstreamer-video = "0.23"
+gtk4 = "0.9"
+glib = "0.20"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "syncwall-inspector"
+path = "src/main.rs"
+
+[[bin]]
+name = "syncwall-recorder"
+path = "src/bin/recorder.rs"
+
+[lib]
+name = "syncwall"
+path = "src/lib.rs"
