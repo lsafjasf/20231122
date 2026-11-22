@@ -1,0 +1,22 @@
+[package]
+name = "downmix-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+gstreamer.workspace = true
+gstreamer-app.workspace = true
+gstreamer-audio.workspace = true
+gstreamer-pbutils = { workspace = true }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+tempfile.workspace = true
+walkdir.workspace = true
+hex.workspace = true
+log.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

@@ -1,0 +1,15 @@
+[package]
+name = "downmix-gtk"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "downmix-gtk"
+path = "src/main.rs"
+
+[dependencies]
+downmix-core.workspace = true
+gtk4 = { workspace = true, features = ["v4_10"] }
+env_logger.workspace = true
+log.workspace = true
