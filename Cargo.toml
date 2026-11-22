@@ -1,0 +1,33 @@
+[package]
+name = "clockbridge"
+version = "0.1.0"
+edition = "2024"
+description = "Clock-aware, segment-level transcode retry and review workstation"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+csv = "1.3"
+gstreamer = "0.25"
+gtk4 = { version = "0.11", features = ["v4_10"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+thiserror = "2.0"
+uuid = { version = "1.18", features = ["v4"] }
+
+[dev-dependencies]
+tempfile = "3.23"
+
+[[bin]]
+name = "clockbridge"
+path = "src/main.rs"
+
+[[bin]]
+name = "retryctl"
+path = "src/bin/retryctl.rs"
+
+[profile.release]
+lto = "thin"
+strip = true
