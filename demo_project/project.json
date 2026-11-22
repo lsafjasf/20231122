@@ -1,0 +1,77 @@
+{
+  "project_id": "PKG-2026-1117-C",
+  "title": "潮汐之后 · 第三版媒体交付包",
+  "package_version": "v3.0-rc2",
+  "assembled_at": "2026-11-21T16:42:09+08:00",
+  "owner": "后期统筹 / 林澜",
+  "sources": [
+    {
+      "id": "src-intro",
+      "path": "media/intro_master.mp4",
+      "label": "片头主版本",
+      "role": "主片",
+      "origin": "A-cam / A001_C003 / 原卡镜像",
+      "declared_format": "video/mp4",
+      "capture_note": "与剪辑时间线 v12 对应的片头输出。",
+      "edge_case": null
+    },
+    {
+      "id": "src-recovered",
+      "path": "media/recovered_take_07.mp4",
+      "label": "恢复镜头 07",
+      "role": "恢复素材",
+      "origin": "B-cam / B007 / 恢复区回填",
+      "declared_format": "video/mp4",
+      "capture_note": "扫描中断后从检查点恢复；必须重放并比较两次探测结果。",
+      "edge_case": null
+    },
+    {
+      "id": "src-roomtone",
+      "path": "media/roomtone_48k.wav",
+      "label": "现场环境声",
+      "role": "音频",
+      "origin": "Sound / SG-02 / 48 kHz",
+      "declared_format": "audio/wav",
+      "capture_note": "用于对白修复的底噪样本。",
+      "edge_case": null
+    },
+    {
+      "id": "src-unknown",
+      "path": "capture/swing_notes.capx",
+      "label": "现场挥杆记录",
+      "role": "来源附件",
+      "origin": "现场平板 / tablet-02 / 手工导出",
+      "declared_format": null,
+      "capture_note": "扩展名与应用注册表均无记录，不能按文本外观推断格式。",
+      "edge_case": {
+        "kind": "unknown_extension",
+        "question": "该 .capx 附件是否应随交付包保留？",
+        "boundary_bytes": 64
+      }
+    },
+    {
+      "id": "src-boundary",
+      "path": "capture/orphan_tail.bin",
+      "label": "恢复区残片",
+      "role": "取证附件",
+      "origin": "恢复区 / 未登记文件名 / 无伴随清单",
+      "declared_format": null,
+      "capture_note": "文件头呈现 ISO BMFF 特征，但结尾没有可解析的 moov；完整性边界不可判定。",
+      "edge_case": {
+        "kind": "truncated_boundary",
+        "question": "该残片是否仅作为取证材料保留，而不作为可交付媒体？",
+        "boundary_bytes": 64
+      }
+    },
+    {
+      "id": "src-missing",
+      "path": "media/camera_b_missing.mp4",
+      "label": "B 机补拍",
+      "role": "主片",
+      "origin": "B-cam / B011 / 清单引用",
+      "declared_format": "video/mp4",
+      "capture_note": "清单声明存在，但打包目录内未找到对应文件。",
+      "edge_case": null
+    }
+  ]
+}

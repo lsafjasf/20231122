@@ -1,0 +1,521 @@
+window {
+  background: #f3f1ea;
+  color: #17211e;
+  font-family: "Source Ledger Sans", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+}
+
+label {
+  color: #17211e;
+}
+
+.mono {
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+.topbar {
+  background: #15251f;
+  color: #f7f4ea;
+  border-bottom: 1px solid #0b1713;
+}
+
+.brand-mark {
+  background: #e6b566;
+  color: #15251f;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 800;
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.brand-kicker {
+  color: #9db1a9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.brand-title {
+  color: #f8f5ed;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.top-meta {
+  color: #9db1a9;
+  font-size: 11px;
+}
+
+.top-pill {
+  color: #d9e4dd;
+  background: #223a31;
+  border: 1px solid #355147;
+  border-radius: 20px;
+  padding: 5px 11px;
+  font-size: 11px;
+}
+
+.ghost-button {
+  background: transparent;
+  border: 1px solid #4e685e;
+  border-radius: 8px;
+  color: #f2f4ee;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ghost-button:hover {
+  background: #253d34;
+  border-color: #799086;
+}
+
+.summary-band {
+  background: #fbfaf6;
+  border-bottom: 1px solid #dcded7;
+}
+
+.eyebrow {
+  color: #65716b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.page-title {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.page-subtitle {
+  color: #66716c;
+  font-size: 12px;
+}
+
+.metric {
+  min-width: 78px;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.metric-label {
+  color: #737c77;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.progress-pass {
+  background: #2f6b53;
+  border-radius: 4px;
+}
+
+.progress-manual {
+  background: #c28a42;
+  border-radius: 4px;
+}
+
+.progress-fail {
+  background: #b54b40;
+  border-radius: 4px;
+}
+
+.progress-muted {
+  background: #dfe1da;
+  border-radius: 4px;
+}
+
+.column-head {
+  color: #5a6861;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.sources-pane {
+  background: #eeece4;
+  border-right: 1px solid #d8dad3;
+}
+
+.filter-pill {
+  background: #e2e0d8;
+  color: #59645e;
+  border-radius: 20px;
+  padding: 4px 9px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.filter-pill.active {
+  background: #1d4b3d;
+  color: #ffffff;
+}
+
+.source-list {
+  background: transparent;
+}
+
+.source-list row {
+  background: transparent;
+  border-radius: 9px;
+  margin-bottom: 3px;
+}
+
+.source-list row:hover {
+  background: #e6e4dc;
+}
+
+.source-list row:selected {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(20, 33, 29, 0.12);
+}
+
+.source-row {
+  padding: 10px 11px;
+}
+
+.source-name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.source-path {
+  color: #7a827d;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10px;
+}
+
+.source-role {
+  color: #717b75;
+  font-size: 10px;
+}
+
+.dot-pass {
+  background: #2f6b53;
+  border-radius: 20px;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+.dot-manual {
+  background: #c28a42;
+  border-radius: 20px;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+.dot-fail {
+  background: #b54b40;
+  border-radius: 20px;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+.detail-pane {
+  background: #fcfbf7;
+}
+
+.detail-scroll {
+  background: #fcfbf7;
+}
+
+.detail-path {
+  color: #6d7771;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 11px;
+}
+
+.detail-title {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.badge {
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.badge-pass {
+  background: #dfece5;
+  color: #225640;
+}
+
+.badge-manual {
+  background: #f4e7d3;
+  color: #84571e;
+}
+
+.badge-fail {
+  background: #f5e1dd;
+  color: #8f392f;
+}
+
+.badge-auto {
+  background: #e3ecee;
+  color: #315e6f;
+}
+
+.badge-neutral {
+  background: #e9e9e3;
+  color: #515c56;
+}
+
+.hairline {
+  background: #e2e3dd;
+  min-height: 1px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.section-num {
+  background: #e9e7df;
+  color: #59645e;
+  border-radius: 6px;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 6px;
+}
+
+.meta-key {
+  color: #77817b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.meta-value {
+  color: #26312d;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.callout {
+  background: #f7f0e4;
+  border: 1px solid #e7d2b4;
+  border-radius: 10px;
+  padding: 13px 15px;
+}
+
+.callout-title {
+  color: #784d16;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.callout-body {
+  color: #675640;
+  font-size: 12px;
+}
+
+.callout-fail {
+  background: #f9eae7;
+  border: 1px solid #ecc8c1;
+}
+
+.callout-fail .callout-title {
+  color: #8f3329;
+}
+
+.callout-fail .callout-body {
+  color: #6f4c47;
+}
+
+.callout-pass {
+  background: #e5efe9;
+  border-color: #bfd5c8;
+}
+
+.callout-pass .callout-title {
+  color: #245640;
+}
+
+.callout-pass .callout-body {
+  color: #496257;
+}
+
+.step {
+  background: #f7f6f1;
+  border: 1px solid #e4e5de;
+  border-radius: 9px;
+  padding: 10px 12px;
+}
+
+.step-ok {
+  border-left: 3px solid #3b745b;
+}
+
+.step-warn {
+  border-left: 3px solid #c28a42;
+}
+
+.step-fail {
+  border-left: 3px solid #b54b40;
+}
+
+.step-seq {
+  color: #6c7771;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.step-action {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.step-flow {
+  color: #6c7671;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10px;
+}
+
+.evidence {
+  background: #f4f4ef;
+  border: 1px solid #dfe1da;
+  border-radius: 9px;
+  padding: 9px 11px;
+}
+
+.evidence-title {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.evidence-note {
+  color: #737d77;
+  font-size: 10px;
+}
+
+.hexbox {
+  background: #1b2723;
+  color: #cfe2d7;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10px;
+}
+
+.report-pane {
+  background: #f7f5ef;
+  border-left: 1px solid #d8dad3;
+}
+
+.report-scroll {
+  background: #f7f5ef;
+}
+
+.report-card {
+  background: #fffefa;
+  border: 1px solid #dfe0d9;
+  border-radius: 10px;
+  padding: 11px 12px;
+}
+
+.report-card-auto {
+  border-left: 3px solid #496e7d;
+}
+
+.report-card-manual {
+  border-left: 3px solid #b67b32;
+}
+
+.report-card-fail {
+  border-left: 3px solid #a84439;
+}
+
+.report-headline {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.report-reason {
+  color: #6b746e;
+  font-size: 10px;
+}
+
+.report-footnote {
+  color: #727c76;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.mini-button {
+  background: #f2efe7;
+  border: 1px solid #d7d5cc;
+  border-radius: 6px;
+  color: #3f4d46;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.mini-button:hover {
+  background: #e8e4da;
+}
+
+.mini-button-confirm {
+  background: #dfece5;
+  border-color: #b8d3c5;
+  color: #245540;
+}
+
+.mini-button-reject {
+  background: #f6e7e3;
+  border-color: #e4c5bd;
+  color: #8e3a30;
+}
+
+.action-row {
+  background: #fbf8f2;
+  border: 1px solid #e4ddd0;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.action-label {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.action-detail {
+  color: #737b75;
+  font-size: 9px;
+}
+
+.command {
+  background: #edece5;
+  color: #39443f;
+  border-radius: 5px;
+  padding: 4px 6px;
+  font-family: "Source Ledger Mono", "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+  font-size: 9px;
+}
+
+.footer {
+  background: #ebe9e1;
+  border-top: 1px solid #d8dad3;
+  color: #6f7973;
+  font-size: 10px;
+}
+
+.empty {
+  color: #7b847f;
+  font-size: 11px;
+}
