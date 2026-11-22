@@ -1,0 +1,6 @@
+{
+  "stream": "delta",
+  "url": "srt://edge-02.local:9000/live",
+  "latency_target_ms": 120,
+  "snapshot": "v2"
+}

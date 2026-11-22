@@ -1,0 +1,3 @@
+This object intentionally uses an unknown extension so the loader
+raises a recoverable error and the experiment continues with the
+remaining objects.

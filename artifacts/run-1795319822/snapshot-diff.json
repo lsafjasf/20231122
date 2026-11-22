@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "field": "pipeline",
+      "v1": "videotestsrc is-live=true ! video/x-raw,framerate=30/1 ! fakesink name=monitored-sink sync=false",
+      "v2": "videotestsrc is-live=true ! video/x-raw,framerate=60/1 ! fakesink name=monitored-sink sync=false"
+    }
+  ],
+  "v1": "v1",
+  "v2": "v2"
+}

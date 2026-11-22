@@ -1,0 +1,6 @@
+{
+  "stream": "alpha",
+  "url": "rtsp://cam-01.local:8554/main",
+  "latency_target_ms": 80,
+  "snapshot": "v1"
+}

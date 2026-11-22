@@ -1,0 +1,7 @@
+{
+  "version": "v2",
+  "description": "candidate control: 60 fps test source, sync=false sink",
+  "pipeline": "videotestsrc is-live=true ! video/x-raw,framerate=60/1 ! fakesink name=monitored-sink sync=false",
+  "duration_ms": 1500,
+  "expect": { "max_mean_latency_ms": 50.0 }
+}

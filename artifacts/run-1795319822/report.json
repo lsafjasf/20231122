@@ -1,0 +1,12 @@
+{
+  "duplicates": 1,
+  "failed": [
+    "objects/stream_gamma.xyzq"
+  ],
+  "journal": "artifacts/run-1795319822/journal.jsonl",
+  "processed": [
+    "stream_alpha",
+    "stream_beta",
+    "stream_delta"
+  ]
+}
