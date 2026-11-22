@@ -1,0 +1,18 @@
+{
+  "fps": 30,
+  "frame_count": 300,
+  "gap": {
+    "start_ns": 4000000000,
+    "end_ns": 5500000000
+  },
+  "extreme": {
+    "window_pad_ns": 1000000000,
+    "jitter_ns": 20000000,
+    "drift_tolerance_ns": 100000000,
+    "queue_max_buffers": 2,
+    "queue_max_bytes": 65536,
+    "degrade_keep_divisor": 4
+  },
+  "max_pool_bytes": 409600,
+  "pause_at_frame": null
+}

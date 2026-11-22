@@ -1,0 +1,14 @@
+[env]
+PKG_CONFIG = "/home/hj/env-media/bin/pkg-config"
+PKG_CONFIG_PATH = "/home/hj/env-media/lib/pkgconfig"
+PKG_CONFIG_SYSROOT_DIR = "/"
+LD_LIBRARY_PATH = "/home/hj/env-media/lib"
+GST_PLUGIN_PATH = "/home/hj/env-media/lib/gstreamer-1.0"
+GST_PLUGIN_SYSTEM_PATH = ""
+GST_PLUGIN_SCANNER = "/home/hj/env-media/libexec/gstreamer-1.0/gst-plugin-scanner"
+
+[build]
+rustflags = [
+    "-C", "link-args=-Wl,--disable-new-dtags",
+    "-C", "link-args=-Wl,-rpath,/home/hj/env-media/lib",
+]
