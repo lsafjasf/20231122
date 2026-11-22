@@ -1,0 +1,21 @@
+[package]
+name = "credits-app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "credits-review"
+path = "src/main.rs"
+
+[features]
+default = ["gui"]
+gui = ["dep:gtk4"]
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+credits-core = { path = "../credits-core" }
+credits-engine = { path = "../credits-engine" }
+gtk4 = { workspace = true, optional = true }

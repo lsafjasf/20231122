@@ -1,0 +1,23 @@
+[package]
+name = "credits-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+cairo-rs.workspace = true
+credits-core = { path = "../credits-core" }
+gstreamer.workspace = true
+gstreamer-app.workspace = true
+gstreamer-audio.workspace = true
+gstreamer-pbutils.workspace = true
+gstreamer-video.workspace = true
+hex.workspace = true
+pangocairo.workspace = true
+png.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+tempfile.workspace = true

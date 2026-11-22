@@ -1,0 +1,75 @@
+{
+  "schema": "credits-roll/v2",
+  "title": "Night Shift - end credits",
+  "timeline": {
+    "fps": 24,
+    "tracks": [
+      {
+        "id": "video-main",
+        "kind": "video",
+        "objects": [
+          {
+            "id": "roll-open",
+            "src": "../fixtures/tail-roll.rollunk",
+            "in": "00:00:00.250",
+            "out": "00:00:03.500",
+            "review_points": [
+              {
+                "label": "first card",
+                "at": "00:00:01.000"
+              },
+              {
+                "label": "second card",
+                "frame": 48
+              }
+            ],
+            "typeset": {
+              "font": "Sans Bold 30",
+              "color": "#FFF7E6FF",
+              "scroll_speed_px_s": 96,
+              "roll_start_s": 0.25
+            },
+            "text": "NIGHT SHIFT\n\nDirected by\nAda Chen\n\nDirector of Photography\nMiro Park\n\nEditor\nJ. Rivera\n\nThank you"
+          }
+        ]
+      },
+      {
+        "id": "video-missing",
+        "kind": "video",
+        "objects": [
+          {
+            "id": "missing-tail",
+            "src": "../fixtures/not-there.rollunk",
+            "review_points": [
+              "00:00:01.000"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "video-second",
+        "kind": "video",
+        "objects": [
+          {
+            "id": "roll-close",
+            "src": "../fixtures/tail-roll.rollunk",
+            "track": "video:1",
+            "in": "2.0",
+            "out": "3.8",
+            "review_points": [
+              {
+                "at": "00:00:02.250"
+              }
+            ],
+            "typeset": {
+              "font": "Serif 26",
+              "scroll_speed_px_s": 60,
+              "opacity": 0.92
+            },
+            "text": "CAST\n\nA. Stone\nB. Lee\nC. Ito\n\n- fin -"
+          }
+        ]
+      }
+    ]
+  }
+}

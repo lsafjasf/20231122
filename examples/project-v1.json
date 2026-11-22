@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "title": "Legacy tail credits",
+  "fps": 24,
+  "font": "Sans 28",
+  "speed": 70,
+  "color": "#FFFFFFFF",
+  "items": [
+    {
+      "file": "../fixtures/tail-roll.rollunk",
+      "start": "00:00:00.500",
+      "end": "00:00:03.500",
+      "track": 1,
+      "snapshot": "00:00:01.500",
+      "text": "LEGACY ROLL\n\nProducer\nSam Wu\n\nSound\nNia Fox"
+    }
+  ]
+}
