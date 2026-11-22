@@ -1,0 +1,24 @@
+[package]
+name = "hdr-meta-fix"
+version = "0.1.0"
+edition = "2024"
+description = "HDR frame metadata inspection and repair tool (HDR10/HLG)"
+
+[lib]
+name = "hdr_meta_fix"
+path = "src/lib.rs"
+
+[[bin]]
+name = "hdr-meta-fix"
+path = "src/main.rs"
+
+[dependencies]
+gstreamer = "0.24"
+gstreamer-app = "0.24"
+gstreamer-video = { version = "0.24", features = ["v1_18"] }
+gtk4 = { version = "0.10", features = ["v4_10"] }
+anyhow = "1"
+thiserror = "2"
+
+[dev-dependencies]
+tempfile = "3"
