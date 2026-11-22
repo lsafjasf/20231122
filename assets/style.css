@@ -1,0 +1,645 @@
+@define-color bg #0a0f15;
+@define-color panel #111821;
+@define-color panel_hi #151f2a;
+@define-color stroke #263241;
+@define-color text #eaf0f7;
+@define-color muted #8e9caf;
+@define-color cyan #62d7e6;
+@define-color blue #82aafa;
+@define-color amber #f2b85b;
+@define-color red #ff7c7c;
+@define-color green #7bd9aa;
+
+window {
+  background-color: @bg;
+  color: @text;
+  font-family: "Noto Sans CJK SC", "Noto Sans", "Ubuntu", sans-serif;
+  font-size: 13px;
+}
+
+headerbar.app-header {
+  min-height: 62px;
+  background: #0d131b;
+  border-bottom: 1px solid @stroke;
+  box-shadow: none;
+  padding: 0 18px;
+}
+
+headerbar.app-header windowcontrols button {
+  color: @muted;
+  background: transparent;
+  border: none;
+}
+
+.app-mark {
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #183542, #13232d);
+  border: 1px solid #2e5863;
+  color: @cyan;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: @text;
+}
+
+.app-context {
+  font-size: 10px;
+  color: @muted;
+  letter-spacing: 1px;
+}
+
+.top-separator {
+  min-width: 1px;
+  min-height: 24px;
+  background: @stroke;
+  margin: 0 14px;
+}
+
+.mono {
+  font-family: "Noto Sans Mono CJK SC", "DejaVu Sans Mono", monospace;
+}
+
+.page-bg {
+  background: @bg;
+}
+
+.main-scroll {
+  background: @bg;
+}
+
+.page {
+  padding: 30px 32px 48px 32px;
+}
+
+.eyebrow {
+  color: @cyan;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.page-title {
+  font-size: 31px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #f4f7fb;
+}
+
+.page-subtitle {
+  color: @muted;
+  font-size: 13px;
+}
+
+.small {
+  font-size: 11px;
+}
+
+.tiny {
+  font-size: 10px;
+}
+
+.micro {
+  font-size: 12px;
+}
+
+.muted {
+  color: @muted;
+}
+
+.soft {
+  color: #b5c1d0;
+}
+
+.cyan {
+  color: @cyan;
+}
+
+.amber {
+  color: @amber;
+}
+
+.red {
+  color: @red;
+}
+
+.green {
+  color: @green;
+}
+
+.blue {
+  color: @blue;
+}
+
+.card {
+  background: @panel;
+  border: 1px solid @stroke;
+  border-radius: 14px;
+}
+
+.card-pad {
+  padding: 18px 20px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: @text;
+}
+
+.card-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: @muted;
+}
+
+.kpi {
+  min-height: 90px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: @panel;
+  border: 1px solid @stroke;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f3f7fc;
+}
+
+.kpi-label {
+  font-size: 11px;
+  color: @muted;
+}
+
+.kpi-detail {
+  font-size: 10px;
+  color: #b2c0d0;
+}
+
+.pill {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid @stroke;
+  background: #16202b;
+  color: @muted;
+}
+
+.pill-ok {
+  color: @green;
+  background: alpha(@green, 0.09);
+  border-color: alpha(@green, 0.24);
+}
+
+.pill-info {
+  color: @cyan;
+  background: alpha(@cyan, 0.09);
+  border-color: alpha(@cyan, 0.22);
+}
+
+.pill-warn {
+  color: @amber;
+  background: alpha(@amber, 0.10);
+  border-color: alpha(@amber, 0.25);
+}
+
+.pill-danger {
+  color: @red;
+  background: alpha(@red, 0.10);
+  border-color: alpha(@red, 0.26);
+}
+
+headerbar.app-header .pill {
+  min-height: 0;
+  padding: 4px 9px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid @stroke;
+  background: #18222d;
+  color: @text;
+  padding: 7px 12px;
+  box-shadow: none;
+  font-size: 12px;
+}
+
+button:hover {
+  background: #202d3a;
+  border-color: #34475a;
+}
+
+button.primary {
+  background: @cyan;
+  color: #061014;
+  border-color: @cyan;
+  font-weight: 700;
+}
+
+button.primary:hover {
+  background: #82e7f2;
+}
+
+button.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: @muted;
+  padding: 5px 7px;
+}
+
+button.ghost:hover {
+  background: #18232e;
+  color: @text;
+}
+
+button.link {
+  background: transparent;
+  border: none;
+  color: @cyan;
+  padding: 2px 0;
+  font-size: 11px;
+}
+
+.icon-badge {
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 9px;
+  background: #17232e;
+  border: 1px solid #2b3b4c;
+  color: @cyan;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.section-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: @text;
+}
+
+.section-note {
+  font-size: 11px;
+  color: @muted;
+}
+
+.hairline {
+  min-height: 1px;
+  background: @stroke;
+}
+
+.source-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0f5fb;
+}
+
+.meta-key {
+  font-size: 10px;
+  color: @muted;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 12px;
+  color: #d2dce8;
+}
+
+.wave-card {
+  padding: 0;
+}
+
+.wave-head {
+  padding: 16px 18px 12px 18px;
+}
+
+.wave-area {
+  background: #0c1219;
+  border-top: 1px solid @stroke;
+  border-bottom: 1px solid @stroke;
+}
+
+.wave-foot {
+  padding: 11px 18px 13px 18px;
+  background: #10171f;
+}
+
+.legend-dot {
+  min-width: 7px;
+  min-height: 7px;
+  border-radius: 999px;
+  margin: 0 3px 0 10px;
+}
+
+.finding {
+  padding: 17px 18px;
+  border-radius: 13px;
+  background: @panel;
+  border: 1px solid @stroke;
+}
+
+.finding:hover {
+  border-color: #35475a;
+}
+
+.finding-id {
+  font-size: 10px;
+  font-weight: 700;
+  color: @muted;
+}
+
+.finding-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: @text;
+}
+
+.finding-summary {
+  font-size: 12px;
+  color: #aebbcb;
+}
+
+.trace {
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: #0d141c;
+  border: 1px solid #1e2a37;
+  font-size: 9px;
+  color: #8495aa;
+}
+
+.trace-key {
+  color: #bdc9d8;
+}
+
+.boundary-panel {
+  margin-top: 4px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #18170f;
+  border: 1px solid #55442a;
+}
+
+.boundary-heading {
+  font-size: 12px;
+  font-weight: 700;
+  color: @amber;
+}
+
+.hypothesis {
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: #110f0a;
+  border: 1px solid #3d3422;
+}
+
+.hypothesis-title {
+  font-size: 11px;
+  color: #d9c9aa;
+}
+
+.hypothesis-detail {
+  font-size: 10px;
+  color: #968a74;
+}
+
+.hex {
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: #080c11;
+  color: #92a4b7;
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 9px;
+}
+
+.failure-card {
+  padding: 15px 17px;
+  border-radius: 12px;
+  background: #1a1510;
+  border: 1px solid #5b4226;
+}
+
+.failure-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f4c77c;
+}
+
+.failure-detail {
+  font-size: 11px;
+  color: #c4ad8a;
+}
+
+.report-rail {
+  background: #0d131b;
+  border-left: 1px solid @stroke;
+}
+
+.rail-scroll {
+  background: transparent;
+}
+
+.rail-body {
+  padding: 24px 22px 20px 22px;
+}
+
+.rail-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #f2f7fd;
+}
+
+.report-block {
+  border-radius: 12px;
+  border: 1px solid @stroke;
+  background: #111922;
+}
+
+.report-block-head {
+  padding: 12px 14px;
+  border-bottom: 1px solid @stroke;
+}
+
+.report-block-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.auto-block {
+  background: #101922;
+}
+
+.human-block {
+  background: #141814;
+  border-color: #34402f;
+}
+
+.report-row {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1e2a36;
+}
+
+.report-row:last-child {
+  border-bottom: none;
+}
+
+.report-row-title {
+  font-size: 11px;
+  color: #d3deea;
+}
+
+.report-row-meta {
+  font-size: 9px;
+  color: @muted;
+}
+
+.status-dot {
+  min-width: 7px;
+  min-height: 7px;
+  border-radius: 999px;
+  margin-top: 5px;
+}
+
+.dot-ok {
+  background: @green;
+}
+
+.dot-info {
+  background: @cyan;
+}
+
+.dot-warn {
+  background: @amber;
+}
+
+.dot-danger {
+  background: @red;
+}
+
+.manual-card {
+  margin: 10px 12px;
+  padding: 12px;
+  border-radius: 9px;
+  background: #10150f;
+  border: 1px solid #303b2b;
+}
+
+.manual-card.confirmed {
+  background: #101b16;
+  border-color: #315344;
+}
+
+.manual-card.rejected {
+  background: #1b1212;
+  border-color: #553333;
+}
+
+.manual-check-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #e4ebdf;
+}
+
+.manual-detail {
+  font-size: 10px;
+  color: #9aa991;
+}
+
+.manual-actions button {
+  padding: 4px 9px;
+  font-size: 10px;
+}
+
+.evidence-row {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.evidence-row:hover {
+  background: #15202b;
+  border-color: @stroke;
+}
+
+.evidence-id {
+  font-size: 9px;
+  color: @cyan;
+}
+
+.evidence-title {
+  font-size: 11px;
+  color: #d1dce8;
+}
+
+.evidence-digest {
+  font-size: 8px;
+  color: #6e8094;
+}
+
+.rail-footer {
+  padding: 14px 20px 18px 20px;
+  border-top: 1px solid @stroke;
+  background: #0d131b;
+}
+
+.summary-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f0f5fb;
+}
+
+.summary-caption {
+  font-size: 9px;
+  color: @muted;
+}
+
+dialog,
+window.evidence-dialog {
+  background: #0e151d;
+  color: @text;
+}
+
+.dialog-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.code-view {
+  background: #080d12;
+  color: #a8b8c9;
+  border: 1px solid #243240;
+  border-radius: 9px;
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 11px;
+  padding: 10px;
+}
+
+textview,
+textview text {
+  background: transparent;
+  color: #a8b8c9;
+}
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  min-width: 5px;
+  min-height: 26px;
+  border-radius: 5px;
+  background: #314151;
+}
+
+scrollbar slider:hover {
+  background: #465a6d;
+}

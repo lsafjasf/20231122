@@ -1,0 +1,19 @@
+[package]
+name = "monitor_route_inspector"
+version = "0.1.0"
+edition = "2024"
+description = "Multi-channel monitoring route source inspection desk"
+
+[dependencies]
+anyhow = "1"
+gstreamer = "0.25"
+gstreamer-app = "0.25"
+gtk4 = "0.11"
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+strip = true
+lto = "thin"
