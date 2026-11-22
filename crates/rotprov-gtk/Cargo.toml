@@ -1,0 +1,12 @@
+[package]
+name = "rotprov-gtk"
+version = "0.1.0"
+edition = "2021"
+description = "视频旋转元数据修复 · 来源检查页 (GTK4)"
+
+[dependencies]
+rotprov-core = { path = "../rotprov-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+gstreamer = { workspace = true }
+gtk4 = { workspace = true }

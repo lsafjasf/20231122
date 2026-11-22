@@ -1,0 +1,32 @@
+[
+  {
+    "id": "alpha",
+    "name": "会议录像 A",
+    "media_path": "fixtures/media/alpha.mp4",
+    "sidecar_path": "fixtures/sidecar/alpha.json"
+  },
+  {
+    "id": "beta",
+    "name": "产品演示 B",
+    "media_path": "fixtures/media/beta.mp4",
+    "sidecar_path": "fixtures/sidecar/beta.json"
+  },
+  {
+    "id": "gamma",
+    "name": "手机竖拍 C",
+    "media_path": "fixtures/media/gamma.mp4",
+    "sidecar_path": "fixtures/sidecar/gamma.json"
+  },
+  {
+    "id": "delta",
+    "name": "损坏上传 D",
+    "media_path": "fixtures/media/delta.mp4",
+    "sidecar_path": "fixtures/sidecar/delta.json"
+  },
+  {
+    "id": "epsilon",
+    "name": "长监控 E",
+    "media_path": "fixtures/media/epsilon.mp4",
+    "sidecar_path": "fixtures/sidecar/epsilon.json"
+  }
+]

@@ -1,0 +1,10 @@
+[package]
+name = "rotprov-core"
+version = "0.1.0"
+edition = "2021"
+description = "视频旋转元数据修复 · 来源检查核心引擎"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+gstreamer = { workspace = true }
