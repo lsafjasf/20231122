@@ -1,0 +1,16 @@
+# Local sysroot assembled from Ubuntu packages; no system-wide dev packages are needed.
+[env]
+PKG_CONFIG = "/home/hj/sysroot/root/usr/bin/pkg-config"
+PKG_CONFIG_SYSROOT_DIR = "/home/hj/sysroot/root"
+PKG_CONFIG_PATH = "/home/hj/sysroot/root/usr/lib/x86_64-linux-gnu/pkgconfig:/home/hj/sysroot/root/usr/share/pkgconfig"
+LD_LIBRARY_PATH = "/home/hj/sysroot/root/usr/lib/x86_64-linux-gnu"
+GST_PLUGIN_PATH = "/home/hj/sysroot/root/usr/lib/x86_64-linux-gnu/gstreamer-1.0"
+GST_PLUGIN_SYSTEM_PATH = "/usr/lib/x86_64-linux-gnu/gstreamer-1.0"
+GST_PLUGIN_SCANNER = "/usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner"
+
+[build]
+rustflags = [
+    "-C", "link-args=-Wl,--disable-new-dtags",
+    "-C", "link-args=-Wl,-rpath,/home/hj/sysroot/root/usr/lib/x86_64-linux-gnu",
+]
+
