@@ -1,0 +1,32 @@
+[workspace]
+resolver = "2"
+members = ["crates/vkri-core", "crates/vkri-cli", "crates/vkri-gui"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"
+hex = "0.4"
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+thiserror = "2"
+walkdir = "2"
+csv = "1"
+gstreamer = "0.25"
+gstreamer-app = "0.25"
+gstreamer-pbutils = "0.25"
+gtk = { package = "gtk4", version = "0.11" }
+glib = "0.22"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0
