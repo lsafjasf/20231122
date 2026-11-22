@@ -1,0 +1,8 @@
+[env]
+PKG_CONFIG = "/home/hj/sysroot/usr/bin/pkgconf"
+PKG_CONFIG_SYSROOT_DIR = "/home/hj/sysroot"
+PKG_CONFIG_PATH = "/home/hj/sysroot/usr/lib/x86_64-linux-gnu/pkgconfig:/home/hj/sysroot/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig"
+LD_LIBRARY_PATH = "/home/hj/sysroot/usr/lib/x86_64-linux-gnu"
+GST_PLUGIN_PATH = "/home/hj/sysroot/usr/lib/x86_64-linux-gnu/gstreamer-1.0"
+GST_PLUGIN_SCANNER = "/usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner"
+XDG_DATA_DIRS = "/home/hj/sysroot/usr/share:/usr/local/share:/usr/share"
