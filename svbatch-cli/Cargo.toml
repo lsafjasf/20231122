@@ -1,0 +1,19 @@
+[package]
+name = "svbatch-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Headless runner for the replayable sound-effect batch experiment"
+
+[[bin]]
+name = "svcli"
+path = "src/main.rs"
+
+[dependencies]
+svbatch = { path = "../svbatch" }
+clap.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+hex.workspace = true

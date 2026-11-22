@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = ["svbatch", "svbatch-cli", "svbatch-gtk"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+rust-version = "1.85"
+
+[workspace.dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+hex = "0.4"
+clap = { version = "4", features = ["derive"] }

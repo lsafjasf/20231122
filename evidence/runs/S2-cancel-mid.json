@@ -1,0 +1,599 @@
+{
+  "run_id": "S2-cancel-mid",
+  "mode": "mid_run_cancel",
+  "started_at": "unix:1795321946",
+  "finished_at": "unix:1795321946",
+  "outcome": "cancelled",
+  "jobs": [
+    {
+      "job_id": "src-sine-440.var-gain-half",
+      "state": "succeeded",
+      "output_file": "src-sine-440.var-gain-half.wav",
+      "sha256": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0",
+      "bytes": 26504,
+      "detail": "ok"
+    },
+    {
+      "job_id": "src-sine-440.var-speed-fast",
+      "state": "succeeded",
+      "output_file": "src-sine-440.var-speed-fast.wav",
+      "sha256": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43",
+      "bytes": 17684,
+      "detail": "ok"
+    },
+    {
+      "job_id": "src-sine-440.var-soft-slow",
+      "state": "cancelled",
+      "output_file": null,
+      "sha256": null,
+      "bytes": null,
+      "detail": "cancelled before completion; partial output removed"
+    }
+  ],
+  "steps": [
+    {
+      "seq": 1,
+      "elapsed_ms": 0,
+      "phase": "batch_start",
+      "job_id": null,
+      "input": {
+        "job_count": 9,
+        "mode": "mid_run_cancel",
+        "run_id": "S2-cancel-mid"
+      },
+      "state": {
+        "token_cancelled": false
+      },
+      "result": {
+        "submitted_jobs": [
+          "src-sine-440.var-gain-half",
+          "src-sine-440.var-speed-fast",
+          "src-sine-440.var-soft-slow",
+          "src-square-220.var-gain-half",
+          "src-square-220.var-speed-fast",
+          "src-square-220.var-soft-slow",
+          "src-saw-880.var-gain-half",
+          "src-saw-880.var-speed-fast",
+          "src-saw-880.var-soft-slow"
+        ]
+      }
+    },
+    {
+      "seq": 3,
+      "elapsed_ms": 0,
+      "phase": "submit_accepted",
+      "job_id": "src-sine-440.var-gain-half",
+      "input": {
+        "job_id": "src-sine-440.var-gain-half",
+        "source": {
+          "duration_ms": 300,
+          "freq_hz": 440,
+          "source_id": "src-sine-440",
+          "wave": 0
+        },
+        "variant": {
+          "gain": 0.5,
+          "speed": 1.0,
+          "variant_id": "var-gain-half"
+        },
+        "work_delay_ms": 120
+      },
+      "state": {
+        "state_before": "pending"
+      },
+      "result": {
+        "idempotency_key": "src-sine-440|var-gain-half|g0.5|s1"
+      }
+    },
+    {
+      "seq": 4,
+      "elapsed_ms": 0,
+      "phase": "job_start",
+      "job_id": "src-sine-440.var-gain-half",
+      "input": {
+        "pipeline": "audiotestsrc wave=0 freq=440 samplesperbuffer=441 num-buffers=30 ! audioconvert ! audioresample ! volume volume=0.5 ! speed speed=1 ! audioconvert ! audioresample ! capsfilter caps=audio/x-raw,format=S16LE,rate=44100,channels=1 ! wavenc ! filesink location=\"./evidence/outputs/S2-cancel-mid/src-sine-440.var-gain-half.wav\""
+      },
+      "state": {
+        "state": "running"
+      },
+      "result": null
+    },
+    {
+      "seq": 6,
+      "elapsed_ms": 122,
+      "phase": "job_end",
+      "job_id": "src-sine-440.var-gain-half",
+      "input": {
+        "job_id": "src-sine-440.var-gain-half"
+      },
+      "state": {
+        "state": "succeeded",
+        "token_cancelled": false
+      },
+      "result": {
+        "bytes": 26504,
+        "detail": "ok",
+        "job_id": "src-sine-440.var-gain-half",
+        "output_file": "src-sine-440.var-gain-half.wav",
+        "sha256": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0",
+        "state": "succeeded"
+      }
+    },
+    {
+      "seq": 8,
+      "elapsed_ms": 122,
+      "phase": "submit_accepted",
+      "job_id": "src-sine-440.var-speed-fast",
+      "input": {
+        "job_id": "src-sine-440.var-speed-fast",
+        "source": {
+          "duration_ms": 300,
+          "freq_hz": 440,
+          "source_id": "src-sine-440",
+          "wave": 0
+        },
+        "variant": {
+          "gain": 1.0,
+          "speed": 1.5,
+          "variant_id": "var-speed-fast"
+        },
+        "work_delay_ms": 120
+      },
+      "state": {
+        "state_before": "pending"
+      },
+      "result": {
+        "idempotency_key": "src-sine-440|var-speed-fast|g1|s1.5"
+      }
+    },
+    {
+      "seq": 9,
+      "elapsed_ms": 122,
+      "phase": "job_start",
+      "job_id": "src-sine-440.var-speed-fast",
+      "input": {
+        "pipeline": "audiotestsrc wave=0 freq=440 samplesperbuffer=441 num-buffers=30 ! audioconvert ! audioresample ! volume volume=1 ! speed speed=1.5 ! audioconvert ! audioresample ! capsfilter caps=audio/x-raw,format=S16LE,rate=44100,channels=1 ! wavenc ! filesink location=\"./evidence/outputs/S2-cancel-mid/src-sine-440.var-speed-fast.wav\""
+      },
+      "state": {
+        "state": "running"
+      },
+      "result": null
+    },
+    {
+      "seq": 11,
+      "elapsed_ms": 244,
+      "phase": "job_end",
+      "job_id": "src-sine-440.var-speed-fast",
+      "input": {
+        "job_id": "src-sine-440.var-speed-fast"
+      },
+      "state": {
+        "state": "succeeded",
+        "token_cancelled": false
+      },
+      "result": {
+        "bytes": 17684,
+        "detail": "ok",
+        "job_id": "src-sine-440.var-speed-fast",
+        "output_file": "src-sine-440.var-speed-fast.wav",
+        "sha256": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43",
+        "state": "succeeded"
+      }
+    },
+    {
+      "seq": 13,
+      "elapsed_ms": 244,
+      "phase": "submit_accepted",
+      "job_id": "src-sine-440.var-soft-slow",
+      "input": {
+        "job_id": "src-sine-440.var-soft-slow",
+        "source": {
+          "duration_ms": 300,
+          "freq_hz": 440,
+          "source_id": "src-sine-440",
+          "wave": 0
+        },
+        "variant": {
+          "gain": 0.7,
+          "speed": 0.8,
+          "variant_id": "var-soft-slow"
+        },
+        "work_delay_ms": 120
+      },
+      "state": {
+        "state_before": "pending"
+      },
+      "result": {
+        "idempotency_key": "src-sine-440|var-soft-slow|g0.7|s0.8"
+      }
+    },
+    {
+      "seq": 14,
+      "elapsed_ms": 244,
+      "phase": "job_start",
+      "job_id": "src-sine-440.var-soft-slow",
+      "input": {
+        "pipeline": "audiotestsrc wave=0 freq=440 samplesperbuffer=441 num-buffers=30 ! audioconvert ! audioresample ! volume volume=0.7 ! speed speed=0.8 ! audioconvert ! audioresample ! capsfilter caps=audio/x-raw,format=S16LE,rate=44100,channels=1 ! wavenc ! filesink location=\"./evidence/outputs/S2-cancel-mid/src-sine-440.var-soft-slow.wav\""
+      },
+      "state": {
+        "state": "running"
+      },
+      "result": null
+    },
+    {
+      "seq": 16,
+      "elapsed_ms": 365,
+      "phase": "job_end",
+      "job_id": "src-sine-440.var-soft-slow",
+      "input": {
+        "job_id": "src-sine-440.var-soft-slow"
+      },
+      "state": {
+        "state": "cancelled",
+        "token_cancelled": true
+      },
+      "result": {
+        "bytes": null,
+        "detail": "cancelled before completion; partial output removed",
+        "job_id": "src-sine-440.var-soft-slow",
+        "output_file": null,
+        "sha256": null,
+        "state": "cancelled"
+      }
+    },
+    {
+      "seq": 18,
+      "elapsed_ms": 365,
+      "phase": "batch_end",
+      "job_id": null,
+      "input": {
+        "of": 9,
+        "processed": 3
+      },
+      "state": {
+        "token_cancelled": true
+      },
+      "result": {
+        "outcome": "cancelled"
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "seq": 2,
+      "elapsed_ms": 0,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 5,
+      "elapsed_ms": 0,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "running"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 7,
+      "elapsed_ms": 122,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 10,
+      "elapsed_ms": 122,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "running"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 12,
+      "elapsed_ms": 244,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "succeeded"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 15,
+      "elapsed_ms": 244,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "running"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "succeeded"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 17,
+      "elapsed_ms": 365,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "cancelled"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "succeeded"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    },
+    {
+      "seq": 19,
+      "elapsed_ms": 365,
+      "states": [
+        [
+          "src-sine-440.var-soft-slow",
+          "cancelled"
+        ],
+        [
+          "src-saw-880.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-square-220.var-soft-slow",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-speed-fast",
+          "succeeded"
+        ],
+        [
+          "src-saw-880.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-square-220.var-gain-half",
+          "pending"
+        ],
+        [
+          "src-sine-440.var-gain-half",
+          "succeeded"
+        ],
+        [
+          "src-square-220.var-speed-fast",
+          "pending"
+        ],
+        [
+          "src-saw-880.var-gain-half",
+          "pending"
+        ]
+      ]
+    }
+  ]
+}

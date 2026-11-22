@@ -1,0 +1,213 @@
+{
+  "checks": [
+    {
+      "claim": "S2 中途取消：至少一个作业被取消，且后续作业保持 pending，批次 outcome=cancelled",
+      "evidence": {
+        "cancelled_jobs": [
+          "src-sine-440.var-soft-slow"
+        ],
+        "outcome": "cancelled",
+        "pending_jobs_in_final_snapshot": 6,
+        "report": "runs/S2-cancel-mid.json"
+      },
+      "id": "C1-mid-cancel",
+      "passed": true,
+      "remediation": "重新执行 `svcli experiment`；若仍失败，检查 CancelToken 轮询间隔与 GStreamer bus 超时（audio.rs）。"
+    },
+    {
+      "claim": "S3 无取消对照：9 个作业全部 succeeded，outcome=completed",
+      "evidence": {
+        "job_count": 9,
+        "outcome": "completed",
+        "report": "runs/S3-control-no-cancel.json",
+        "states": [
+          [
+            "src-sine-440.var-gain-half",
+            "succeeded"
+          ],
+          [
+            "src-sine-440.var-speed-fast",
+            "succeeded"
+          ],
+          [
+            "src-sine-440.var-soft-slow",
+            "succeeded"
+          ],
+          [
+            "src-square-220.var-gain-half",
+            "succeeded"
+          ],
+          [
+            "src-square-220.var-speed-fast",
+            "succeeded"
+          ],
+          [
+            "src-square-220.var-soft-slow",
+            "succeeded"
+          ],
+          [
+            "src-saw-880.var-gain-half",
+            "succeeded"
+          ],
+          [
+            "src-saw-880.var-speed-fast",
+            "succeeded"
+          ],
+          [
+            "src-saw-880.var-soft-slow",
+            "succeeded"
+          ]
+        ]
+      },
+      "id": "C2-control",
+      "passed": true,
+      "remediation": "查看 runs/S3 报告中 job_end 的 detail 字段；用 `gst-launch-1.0` 复现失败管线（见报告 steps[].input.pipeline）。"
+    },
+    {
+      "claim": "S2 被取消/未开始的作业没有残留 WAV 文件",
+      "evidence": {
+        "leaked_files": [],
+        "output_dir": "./evidence/outputs/S2-cancel-mid"
+      },
+      "id": "C3-no-partial-output",
+      "passed": true,
+      "remediation": "删除 outputs/S2-cancel-mid 后重跑；检查 Engine::run_job 的取消分支是否清理目标文件。"
+    },
+    {
+      "claim": "S4 重复提交：10 个提交中 9 个唯一作业正常完成，重复的第 10 个（同 idempotency key）被拒绝且无文件",
+      "evidence": {
+        "rejected_jobs": [
+          "src-sine-440.var-gain-half"
+        ],
+        "report": "runs/S4-duplicate-submit.json",
+        "succeeded_count": 9
+      },
+      "id": "C4-duplicate-blocked",
+      "passed": true,
+      "remediation": "检查 SubmissionRegistry::submit 的 key 生成逻辑；用 `svcli inspect-jobs` 对比重复项的 idempotency_key。"
+    },
+    {
+      "claim": "S5 改变提交顺序后，每个作业的输出 SHA256 与 S1 完全一致",
+      "evidence": {
+        "baseline_order": [
+          "src-sine-440.var-gain-half",
+          "src-sine-440.var-speed-fast",
+          "src-sine-440.var-soft-slow",
+          "src-square-220.var-gain-half",
+          "src-square-220.var-speed-fast",
+          "src-square-220.var-soft-slow",
+          "src-saw-880.var-gain-half",
+          "src-saw-880.var-speed-fast",
+          "src-saw-880.var-soft-slow"
+        ],
+        "hash_pairs": [
+          {
+            "job": "src-saw-880.var-gain-half",
+            "s1": "e964711a757bec86cd2520d75e4eaaf807135c8d6edb3e12031f3eaa18f0d669",
+            "s5": "e964711a757bec86cd2520d75e4eaaf807135c8d6edb3e12031f3eaa18f0d669"
+          },
+          {
+            "job": "src-saw-880.var-soft-slow",
+            "s1": "de470b4a5e8a02c48369ab8d38d7b79ce7c6ae3100a51302fcfb2707f23042b3",
+            "s5": "de470b4a5e8a02c48369ab8d38d7b79ce7c6ae3100a51302fcfb2707f23042b3"
+          },
+          {
+            "job": "src-saw-880.var-speed-fast",
+            "s1": "23f1eeaf651bae6de7f40bdc16f0add4da7b744a3ca2aa014aa77394c3e9a0e1",
+            "s5": "23f1eeaf651bae6de7f40bdc16f0add4da7b744a3ca2aa014aa77394c3e9a0e1"
+          },
+          {
+            "job": "src-sine-440.var-gain-half",
+            "s1": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0",
+            "s5": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0"
+          },
+          {
+            "job": "src-sine-440.var-soft-slow",
+            "s1": "e7331c6502bfa2f5d9d9a2c881287f3297f5e17cdd806f90baa6afc8df006f1b",
+            "s5": "e7331c6502bfa2f5d9d9a2c881287f3297f5e17cdd806f90baa6afc8df006f1b"
+          },
+          {
+            "job": "src-sine-440.var-speed-fast",
+            "s1": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43",
+            "s5": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43"
+          },
+          {
+            "job": "src-square-220.var-gain-half",
+            "s1": "7dda316b08769a5a33bbe7011684b1fdffdc8dda256718af68a8c843e8364b79",
+            "s5": "7dda316b08769a5a33bbe7011684b1fdffdc8dda256718af68a8c843e8364b79"
+          },
+          {
+            "job": "src-square-220.var-soft-slow",
+            "s1": "b5d005e04899dbd5a04c11bb6f99c2e969af426f184382f9669af0d80ae9089a",
+            "s5": "b5d005e04899dbd5a04c11bb6f99c2e969af426f184382f9669af0d80ae9089a"
+          },
+          {
+            "job": "src-square-220.var-speed-fast",
+            "s1": "e566a5ae4428ea2b09a0306832de4e8673aaea88cffb88d33f2f5b5de6bbc2eb",
+            "s5": "e566a5ae4428ea2b09a0306832de4e8673aaea88cffb88d33f2f5b5de6bbc2eb"
+          }
+        ],
+        "order_changed": true,
+        "reordered_order": [
+          "src-saw-880.var-gain-half",
+          "src-sine-440.var-gain-half",
+          "src-square-220.var-gain-half",
+          "src-saw-880.var-soft-slow",
+          "src-sine-440.var-soft-slow",
+          "src-square-220.var-soft-slow",
+          "src-saw-880.var-speed-fast",
+          "src-sine-440.var-speed-fast",
+          "src-square-220.var-speed-fast"
+        ]
+      },
+      "id": "C5-order-invariance",
+      "passed": true,
+      "remediation": "若哈希不一致，检查管线描述是否引入非确定性元素（时间戳/随机源）；本实验固定 audiotestsrc 与 caps。"
+    },
+    {
+      "claim": "S6 重放：9 个作业的 SHA256 与 S1 基线逐一相等",
+      "evidence": {
+        "baseline": {
+          "src-saw-880.var-gain-half": "e964711a757bec86cd2520d75e4eaaf807135c8d6edb3e12031f3eaa18f0d669",
+          "src-saw-880.var-soft-slow": "de470b4a5e8a02c48369ab8d38d7b79ce7c6ae3100a51302fcfb2707f23042b3",
+          "src-saw-880.var-speed-fast": "23f1eeaf651bae6de7f40bdc16f0add4da7b744a3ca2aa014aa77394c3e9a0e1",
+          "src-sine-440.var-gain-half": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0",
+          "src-sine-440.var-soft-slow": "e7331c6502bfa2f5d9d9a2c881287f3297f5e17cdd806f90baa6afc8df006f1b",
+          "src-sine-440.var-speed-fast": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43",
+          "src-square-220.var-gain-half": "7dda316b08769a5a33bbe7011684b1fdffdc8dda256718af68a8c843e8364b79",
+          "src-square-220.var-soft-slow": "b5d005e04899dbd5a04c11bb6f99c2e969af426f184382f9669af0d80ae9089a",
+          "src-square-220.var-speed-fast": "e566a5ae4428ea2b09a0306832de4e8673aaea88cffb88d33f2f5b5de6bbc2eb"
+        },
+        "replay": {
+          "src-saw-880.var-gain-half": "e964711a757bec86cd2520d75e4eaaf807135c8d6edb3e12031f3eaa18f0d669",
+          "src-saw-880.var-soft-slow": "de470b4a5e8a02c48369ab8d38d7b79ce7c6ae3100a51302fcfb2707f23042b3",
+          "src-saw-880.var-speed-fast": "23f1eeaf651bae6de7f40bdc16f0add4da7b744a3ca2aa014aa77394c3e9a0e1",
+          "src-sine-440.var-gain-half": "4b7e1559f615c7d0828e3c68030524a4e9b7b7c5190a3b05fe4a8fedcd1ba1b0",
+          "src-sine-440.var-soft-slow": "e7331c6502bfa2f5d9d9a2c881287f3297f5e17cdd806f90baa6afc8df006f1b",
+          "src-sine-440.var-speed-fast": "bbb9b0754563c4c5a9587cec958c636f5ded092a24ca3a53f36cf3a3ab90bb43",
+          "src-square-220.var-gain-half": "7dda316b08769a5a33bbe7011684b1fdffdc8dda256718af68a8c843e8364b79",
+          "src-square-220.var-soft-slow": "b5d005e04899dbd5a04c11bb6f99c2e969af426f184382f9669af0d80ae9089a",
+          "src-square-220.var-speed-fast": "e566a5ae4428ea2b09a0306832de4e8673aaea88cffb88d33f2f5b5de6bbc2eb"
+        }
+      },
+      "id": "C6-replay-determinism",
+      "passed": true,
+      "remediation": "重跑 `svcli experiment`；若仍漂移，用 `sha256sum outputs/S1-baseline/*.wav outputs/S6-replay/*.wav` 定位差异文件。"
+    },
+    {
+      "claim": "报告中记录的全部 SHA256 与磁盘 WAV 文件实际哈希一致",
+      "evidence": {
+        "mismatches": []
+      },
+      "id": "C7-evidence-integrity",
+      "passed": true,
+      "remediation": "以 runs/*.json 为准重新生成输出：删除 outputs/ 后执行 `svcli experiment --fresh`。"
+    }
+  ],
+  "generated_at_unix": 1795321951,
+  "stack": [
+    "Rust 1.100",
+    "GStreamer 1.28",
+    "GTK 4.24"
+  ]
+}

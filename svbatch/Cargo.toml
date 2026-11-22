@@ -1,0 +1,15 @@
+[package]
+name = "svbatch"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "Replayable batch sound-effect variant engine (GStreamer core)"
+
+[dependencies]
+gstreamer = { version = "0.25", package = "gstreamer" }
+glib = "0.22"
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+hex.workspace = true
