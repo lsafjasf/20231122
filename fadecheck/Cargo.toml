@@ -1,0 +1,26 @@
+[package]
+name = "fadecheck"
+version = "0.1.0"
+edition = "2021"
+description = "音频片段淡化检查来源检查页 (Rust + GStreamer + GTK4)"
+
+[dependencies]
+gtk = { version = "0.9", package = "gtk4", features = ["v4_10"] }
+glib = "0.20"
+gstreamer = "0.23"
+gstreamer-app = "0.23"
+gstreamer-audio = "0.23"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[dev-dependencies]
+tempfile = "3"
+
+[[bin]]
+name = "fadecheck"
+path = "src/main.rs"
+
+[profile.dev]
+# 本地前缀中的系统库较多，保留默认优化级别，仅去掉二进制重复去重开销
+debug = 1
