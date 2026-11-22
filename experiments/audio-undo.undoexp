@@ -1,0 +1,246 @@
+{
+  "format": "audio-undo-experiment/v1",
+  "experiment_id": "uid4-0044-audio-undo",
+  "extension": {
+    "value": ".undoexp",
+    "registered": false,
+    "note": "Intentionally unregistered extension; it is resolved only by explicit path, never by MIME/typefind."
+  },
+  "controls": {
+    "snapshot_v1": {
+      "name": "pristine-clip-v1",
+      "state_sha256": "sha256:e93bc037e2f257072a069fdf21fdb8242c0f0251cbc227504bf8be34bccf3048",
+      "clip": {
+        "clip_id": "voice-take-01",
+        "source": {
+          "frequency_hz": 440,
+          "duration_ms": 2000,
+          "sample_rate": 16000,
+          "channels": 1
+        },
+        "trim_start_ms": 0,
+        "trim_end_ms": 2000,
+        "gain_milli": 1000
+      }
+    },
+    "snapshot_v2": {
+      "name": "edited-clip-v2",
+      "state_sha256": "sha256:30827edd22660af6df772d68e50335ca93e8f8588730a5407d1af476130e3ac7",
+      "clip": {
+        "clip_id": "voice-take-01",
+        "source": {
+          "frequency_hz": 440,
+          "duration_ms": 2000,
+          "sample_rate": 16000,
+          "channels": 1
+        },
+        "trim_start_ms": 200,
+        "trim_end_ms": 1800,
+        "gain_milli": 700
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "canonical-trim-then-gain",
+      "description": "Baseline order: trim, then gain.",
+      "expect": {
+        "rejected_step_indices": [],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "canonical-trim",
+          "base_revision": 0,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "canonical-gain",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        }
+      ]
+    },
+    {
+      "id": "reordered-gain-then-trim",
+      "description": "Same two edits submitted in reverse order.",
+      "expect": {
+        "rejected_step_indices": [],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "reordered-gain",
+          "base_revision": 0,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        },
+        {
+          "request_id": "reordered-trim",
+          "base_revision": 1,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        }
+      ]
+    },
+    {
+      "id": "duplicate-submissions",
+      "description": "Replay both request IDs without changing state or history depth.",
+      "expect": {
+        "rejected_step_indices": [],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "duplicate-trim",
+          "base_revision": 0,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "duplicate-gain",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        },
+        {
+          "request_id": "duplicate-trim",
+          "base_revision": 2,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "duplicate-gain",
+          "base_revision": 2,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        }
+      ]
+    },
+    {
+      "id": "undo-redo-roundtrip",
+      "description": "Undo the gain, then redo it; both snapshots remain reachable.",
+      "expect": {
+        "rejected_step_indices": [],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "roundtrip-trim",
+          "base_revision": 0,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "roundtrip-gain",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        },
+        {
+          "request_id": "roundtrip-undo",
+          "base_revision": 2,
+          "command": {
+            "kind": "undo"
+          }
+        },
+        {
+          "request_id": "roundtrip-redo",
+          "base_revision": 3,
+          "command": {
+            "kind": "redo"
+          }
+        }
+      ]
+    },
+    {
+      "id": "conflict-then-recover",
+      "description": "A request-ID conflict is rejected, then a fresh request safely completes the object.",
+      "expect": {
+        "rejected_step_indices": [1],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "shared-request",
+          "base_revision": 0,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "shared-request",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        },
+        {
+          "request_id": "recovery-gain",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        }
+      ]
+    },
+    {
+      "id": "after-exception-object",
+      "description": "This object is processed after the previous object's rejected step.",
+      "expect": {
+        "rejected_step_indices": [],
+        "final_control": "v2"
+      },
+      "steps": [
+        {
+          "request_id": "after-exception-trim",
+          "base_revision": 0,
+          "command": {
+            "kind": "trim",
+            "start_ms": 200,
+            "end_ms": 1800
+          }
+        },
+        {
+          "request_id": "after-exception-gain",
+          "base_revision": 1,
+          "command": {
+            "kind": "gain",
+            "gain_milli": 700
+          }
+        }
+      ]
+    }
+  ]
+}
