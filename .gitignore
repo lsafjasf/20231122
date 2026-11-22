@@ -1,0 +1,9 @@
+/target
+/.cargo
+/artifacts/runs
+/artifacts/full-run
+/artifacts/paused-run
+/artifacts/degraded-run
+/artifacts/continuous-run
+/artifacts/compare
+*.tmp
