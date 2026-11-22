@@ -1,0 +1,285 @@
+{
+  "id": "SRC-20261122-042",
+  "checked_at": "2026-11-22 11:42:08 +08:00",
+  "operator": "l.shen",
+  "source": {
+    "uri": "https://edge-sg-04.relay.internal/live/ch_17/index.m3u8",
+    "display": "hls://edge-sg-04 / live / ch_17",
+    "format": "HLS · MPEG-TS",
+    "video": "H.264 High@L4.1 · 1920×1080 · 59.94 fps",
+    "audio": "AAC-LC · 48 kHz · stereo",
+    "fingerprint": "sha256:7b3e:91af:42c1:c92a",
+    "probed": "11:42:08.031 – 11:42:52.664"
+  },
+  "runs": [
+    {
+      "id": "RUN-01",
+      "label": "运行 #1",
+      "started": "11:42:08.031",
+      "cancel_at": "00:18.420",
+      "cancel_kind": "中途取消 #1",
+      "trigger": "人工停止",
+      "actor": "l.shen",
+      "last_step": "STEP-07",
+      "queue_peak": "4.37 s",
+      "evidence": ["E-04", "E-07"]
+    },
+    {
+      "id": "RUN-02",
+      "label": "运行 #2",
+      "started": "11:42:26.902",
+      "cancel_at": "00:41.227",
+      "cancel_kind": "中途取消 #2",
+      "trigger": "人工停止",
+      "actor": "l.shen",
+      "last_step": "STEP-09",
+      "queue_peak": "4.11 s",
+      "evidence": ["E-07", "E-08"]
+    }
+  ],
+  "queue_series": [
+    0.18, 0.22, 0.31, 0.46, 0.62, 0.85, 1.10, 1.34, 1.70, 2.05,
+    2.41, 2.75, 3.02, 3.31, 3.62, 3.80, 3.91, 3.72, 3.24, 0.26,
+    0.54, 0.92, 1.28, 1.65, 2.02, 2.33, 2.56, 2.79, 3.02, 3.28,
+    3.55, 3.88, 4.10, 4.37, 4.02, 3.74, 3.50, 3.41, 3.66, 3.92,
+    4.06, 4.11
+  ],
+  "steps": [
+    {
+      "id": "STEP-01",
+      "time": "00:00.031",
+      "name": "来源握手",
+      "element": "hlsdemux",
+      "state": "pass",
+      "detail": "m3u8 200 OK · 3.2 KB · 1 次重定向",
+      "input_ref": "IN-01",
+      "evidence": ["E-01"]
+    },
+    {
+      "id": "STEP-02",
+      "time": "00:00.184",
+      "name": "解复用",
+      "element": "tsdemux",
+      "state": "pass",
+      "detail": "视频 PID 0x1011 · 音频 PID 0x1100",
+      "input_ref": "IN-01",
+      "evidence": ["E-02"]
+    },
+    {
+      "id": "STEP-03",
+      "time": "00:00.267",
+      "name": "视频解码",
+      "element": "avdec_h264",
+      "state": "pass",
+      "detail": "首帧 40 ms · 解码错误 0",
+      "input_ref": "IN-01",
+      "evidence": ["E-02"]
+    },
+    {
+      "id": "STEP-04",
+      "time": "00:00.384",
+      "name": "背压探针",
+      "element": "queue",
+      "state": "warn",
+      "detail": "峰值 4.37 s · 阈值 3.50 s · 采样 10 Hz",
+      "input_ref": "STEP-03",
+      "evidence": ["E-03", "E-05"]
+    },
+    {
+      "id": "STEP-05",
+      "time": "00:00.408",
+      "name": "实时转码",
+      "element": "vah264enc",
+      "state": "pass",
+      "detail": "已接收 521 帧 · 输出队列 12 帧",
+      "input_ref": "STEP-04",
+      "evidence": ["E-05"]
+    },
+    {
+      "id": "STEP-06",
+      "time": "00:04.120",
+      "name": "下游消费",
+      "element": "fakesink",
+      "state": "warn",
+      "detail": "消费滞后 2.14 s · 无 EOS / ERROR",
+      "input_ref": "STEP-05",
+      "evidence": ["E-05", "E-06"]
+    },
+    {
+      "id": "STEP-07",
+      "time": "00:18.420",
+      "name": "中途取消 #1",
+      "element": "pipeline: PAUSED",
+      "state": "cancel",
+      "detail": "人工停止 · 尾段 queue 3.62 s",
+      "input_ref": "STEP-06",
+      "evidence": ["E-04", "E-07"]
+    },
+    {
+      "id": "STEP-08",
+      "time": "00:19.108",
+      "name": "运行 #2 重启",
+      "element": "pipeline: PLAYING",
+      "state": "pass",
+      "detail": "复用来源快照 · 新证据流 RUN-02",
+      "input_ref": "IN-01",
+      "evidence": ["E-01", "E-08"]
+    },
+    {
+      "id": "STEP-09",
+      "time": "00:41.227",
+      "name": "中途取消 #2",
+      "element": "pipeline: PAUSED",
+      "state": "cancel",
+      "detail": "阈值越界与取消同窗 · 尾段日志缺 380 ms",
+      "input_ref": "STEP-06",
+      "evidence": ["E-07", "E-08"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-01",
+      "kind": "RAW INPUT",
+      "title": "来源清单快照",
+      "subtitle": "原始请求与响应头",
+      "source_ref": "IN-01",
+      "step_ref": "STEP-01",
+      "captured": "11:42:08.031",
+      "payload": "GET /live/ch_17/index.m3u8 HTTP/1.1\nHost: edge-sg-04.relay.internal\nHTTP/1.1 200 OK\nContent-Type: application/vnd.apple.mpegurl\nContent-Length: 3287\nX-Edge-Node: sg-04\nETag: \"a81f-042\""
+    },
+    {
+      "id": "E-02",
+      "kind": "PROBE",
+      "title": "流属性与解码检查",
+      "subtitle": "GstDiscoverer 摘要",
+      "source_ref": "IN-01",
+      "step_ref": "STEP-03",
+      "captured": "11:42:08.298",
+      "payload": "container: MPEG-TS\nvideo: H.264 High@L4.1, 1920x1080, 59.94 fps\naudio: AAC-LC, 48000 Hz, stereo\ndecode_errors: 0\nfirst_frame_latency_ms: 40"
+    },
+    {
+      "id": "E-03",
+      "kind": "METRIC",
+      "title": "queue 背压采样",
+      "subtitle": "RUN-01 / RUN-02 · 622 samples",
+      "source_ref": "IN-01",
+      "step_ref": "STEP-04",
+      "captured": "11:42:08.384",
+      "payload": "sampling_hz: 10\nunit: buffered_time\nthreshold_s: 3.50\npeak_run_01_s: 4.37\npeak_run_02_s: 4.11\nsample_ref: artifacts/evidence/queue-20261122-042.jsonl"
+    },
+    {
+      "id": "E-04",
+      "kind": "AUDIT",
+      "title": "取消操作审计",
+      "subtitle": "pipeline state change + actor",
+      "source_ref": "IN-01",
+      "step_ref": "STEP-07",
+      "captured": "11:42:26.451",
+      "payload": "event: user_cancel\nactor: operator:l.shen\nrun: RUN-01\nfrom: PLAYING\nto: PAUSED\nqueue_before_cancel_s: 3.62\noperator_comment: 复核后停止"
+    },
+    {
+      "id": "E-05",
+      "kind": "TIMING",
+      "title": "下游消费滞后",
+      "subtitle": "sink segment timing",
+      "source_ref": "STEP-04",
+      "step_ref": "STEP-06",
+      "captured": "11:42:12.504",
+      "payload": "expected_pts_step_ms: 16.683\nobserved_consume_lag_s: 2.14\nframes_queued_peak: 131\nframes_dropped: 0\npipeline_errors: 0"
+    },
+    {
+      "id": "E-06",
+      "kind": "HASH",
+      "title": "输入指纹",
+      "subtitle": "manifest + init segment",
+      "source_ref": "IN-01",
+      "step_ref": "STEP-01",
+      "captured": "11:42:08.036",
+      "payload": "manifest_sha256: 7b3e91af42c1c92a...81dd\ninit_segment_sha256: 0f44b31d...a87c\nfingerprint_match: true\nedge_generation: 41"
+    },
+    {
+      "id": "E-07",
+      "kind": "RAW LOG",
+      "title": "RUN-02 尾段日志",
+      "subtitle": "关键证据 · 380 ms 缺口",
+      "source_ref": "STEP-09",
+      "step_ref": "STEP-09",
+      "captured": "11:42:49.258 – 11:42:49.638",
+      "payload": "11:42:49.258 queue level-time=4.11s\n11:42:49.258 user_cancel actor=operator:l.shen\n11:42:49.259 state PLAYING -> PAUSED\n[missing 380 ms: trace collector flush timeout]\n11:42:49.638 pipeline state=PAUSED\nno EOS. no ERROR."
+    },
+    {
+      "id": "E-08",
+      "kind": "BOUNDARY",
+      "title": "无法判断窗口",
+      "subtitle": "阈值越界与取消同窗",
+      "source_ref": "STEP-09",
+      "step_ref": "STEP-09",
+      "captured": "11:42:49.258 – 11:42:49.638",
+      "payload": "window_ms: 380\nqueue_at_start_s: 4.11\nthreshold_s: 3.50\ncausal_evidence: insufficient\nreason: cancel interrupts drain observation\nmanual_review_required: true"
+    }
+  ],
+  "auto_findings": [
+    {
+      "id": "A-01",
+      "severity": "high",
+      "confidence": 94,
+      "title": "入口稳定，背压来自消费侧",
+      "summary": "入流码率波动 < 2.1%，而 queue 在 4.37 s 达峰；瓶颈位于解码之后。",
+      "step_refs": ["STEP-03", "STEP-04", "STEP-06"],
+      "evidence": ["E-02", "E-03", "E-05"]
+    },
+    {
+      "id": "A-02",
+      "severity": "medium",
+      "confidence": 100,
+      "title": "两次中途取消均无错误终止",
+      "summary": "RUN-01 与 RUN-02 都由人工事件停止，GStreamer bus 未出现 ERROR。",
+      "step_refs": ["STEP-07", "STEP-09"],
+      "evidence": ["E-04", "E-07"]
+    },
+    {
+      "id": "A-03",
+      "severity": "boundary",
+      "confidence": 71,
+      "title": "RUN-02 因果无法闭合",
+      "summary": "取消发生在阈值越界后的 380 ms 内，缺少排空观察，不能归因为真实故障。",
+      "step_refs": ["STEP-04", "STEP-09"],
+      "evidence": ["E-07", "E-08"]
+    }
+  ],
+  "manual_confirmations": [
+    {
+      "id": "H-01",
+      "status": "confirmed",
+      "title": "取消 #1 由值班员主动触发",
+      "author": "l.shen",
+      "time": "11:46:12",
+      "note": "与操作审计一致。停止前画面正常，判定不是故障恢复。",
+      "evidence": ["E-04", "E-07"]
+    },
+    {
+      "id": "H-02",
+      "status": "pending",
+      "title": "取消 #2 与背压的因果关系",
+      "author": "待指派",
+      "time": "尚未确认",
+      "note": "需复核 RUN-02 尾段；自动结论保持在边界内，不升级为故障。",
+      "evidence": ["E-07", "E-08"]
+    }
+  ],
+  "boundary": {
+    "id": "B-01",
+    "window": "00:41.227 – 00:41.607",
+    "title": "无法判断：取消是否掩盖了真实背压",
+    "summary": "queue 在 4.11 s 时已越过 3.50 s 阈值；但 380 ms 内同时收到人工取消，且 trace collector 未完成 flush。既不能证明下游本会持续阻塞，也不能排除。",
+    "status": "indeterminate",
+    "evidence": ["E-07", "E-08"],
+    "next_action": "保留窗口原始日志，指派人工复核后补录结论"
+  },
+  "failure": {
+    "code": "EVIDENCE_GAP_380MS",
+    "title": "证据包不完整：RUN-02 尾段缺口",
+    "detail": "取消事件之后的 trace flush 超时，自动判读已降级。请先重探来源，再补齐日志或导出证据包交给复核人。",
+    "command": "gst-launch-1.0 souphttpsrc location=\"https://edge-sg-04.relay.internal/live/ch_17/index.m3u8\" ! hlsdemux ! fakesink sync=false"
+  }
+}
