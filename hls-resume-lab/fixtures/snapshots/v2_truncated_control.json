@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "snapshot_id": "snap-v2-truncated",
+  "captured_at": "2026-11-21T09:30:00+08:00",
+  "note": "control fixture: writer crashed mid flush, payload deliberately truncated",
+  "records": [
+    {
+      "record_id": "r-9001",
+      "manifest_url": "fixtures/media/channel-a/index.m3u8",
+      "resume_position_ms": 5000,
+      "segment_seq": 1,
+      "integrity": "sha256:0000000000000000000000000000000000000000000000000000000000

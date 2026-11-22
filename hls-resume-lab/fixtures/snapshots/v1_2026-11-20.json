@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "snap-v1",
+  "captured_at": "2026-11-20T08:00:00+08:00",
+  "note": "first snapshot: resume positions stored as whole seconds",
+  "records": [
+    {
+      "record_id": "r-1001",
+      "manifest_url": "fixtures/media/channel-a/index.m3u8",
+      "resume_position_ms": 12000,
+      "segment_seq": 3,
+      "submitted_at": "2026-11-20T07:58:10+08:00"
+    },
+    {
+      "record_id": "r-1002",
+      "manifest_url": "fixtures/media/channel-b/index.m3u8",
+      "resume_position_ms": 35500,
+      "segment_seq": 7,
+      "submitted_at": "2026-11-20T07:59:02+08:00"
+    },
+    {
+      "record_id": "r-1003",
+      "manifest_url": "fixtures/media/channel-c/index.m3u8",
+      "resume_position_ms": 8000,
+      "segment_seq": 2,
+      "submitted_at": "2026-11-20T07:59:41+08:00"
+    }
+  ]
+}

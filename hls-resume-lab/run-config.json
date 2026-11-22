@@ -1,0 +1,12 @@
+{
+  "snapshots": [
+    ["v1", "fixtures/snapshots/v1_2026-11-20.json"],
+    ["v2", "fixtures/snapshots/v2_2026-11-21.json"],
+    ["truncated-control", "fixtures/snapshots/v2_truncated_control.json"]
+  ],
+  "duplicate_ids": ["r-1001", "r-2002"],
+  "verify_reversed_order": true,
+  "evidence_dir": "evidence",
+  "temp_dir": "/tmp/hls-resume-lab-manual/scratch",
+  "run_gst_probes": true
+}

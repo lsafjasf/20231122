@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "snapshot_id": "snap-v2",
+  "captured_at": "2026-11-21T08:00:00+08:00",
+  "note": "second snapshot: millisecond precision plus per-record integrity hash",
+  "records": [
+    {
+      "record_id": "r-2001",
+      "manifest_url": "fixtures/media/channel-a/index.m3u8",
+      "resume_position_ms": 12340,
+      "segment_seq": 3,
+      "integrity": "sha256:9f2d7c2a1b6e4f80a3d5c7e9b2a4f6081d3e5c7a9b0f2d4c6e8a0b2d4f6081a3",
+      "submitted_at": "2026-11-21T07:58:11+08:00"
+    },
+    {
+      "record_id": "r-2002",
+      "manifest_url": "fixtures/media/channel-b/index.m3u8",
+      "resume_position_ms": 35507,
+      "segment_seq": 7,
+      "integrity": "sha256:2c4e6a80b1d3f5970a2c4e6b8d0f1a3c5e7b9d2f4a6c8e0b2d4f6081a3c5e7b9",
+      "submitted_at": "2026-11-21T07:59:03+08:00"
+    },
+    {
+      "record_id": "r-2003",
+      "manifest_url": "fixtures/media/channel-c/index.m3u8",
+      "resume_position_ms": 8125,
+      "segment_seq": 2,
+      "integrity": "sha256:7b9d2f4a6c8e0b1d3f5970a2c4e6b8d0f1a3c5e7b9d2f4a6c8e0b2d4f6081a3c5",
+      "submitted_at": "2026-11-21T07:59:42+08:00"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "run_id": "final-001",
+  "reports": [
+    {
+      "snapshot_id": "snap-v1",
+      "schema_version": 1,
+      "load_ok": true,
+      "load_error": null,
+      "results": [
+        {
+          "record_id": "r-1001",
+          "schema_version": 1,
+          "manifest_url": "fixtures/media/channel-a/index.m3u8",
+          "resume_position_ms": 12000,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 12000 ms (segment seq 3) accepted under schema v1"
+        },
+        {
+          "record_id": "r-1002",
+          "schema_version": 1,
+          "manifest_url": "fixtures/media/channel-b/index.m3u8",
+          "resume_position_ms": 35500,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 35500 ms (segment seq 7) accepted under schema v1"
+        },
+        {
+          "record_id": "r-1003",
+          "schema_version": 1,
+          "manifest_url": "fixtures/media/channel-c/index.m3u8",
+          "resume_position_ms": 8000,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 8000 ms (segment seq 2) accepted under schema v1"
+        },
+        {
+          "record_id": "r-1001",
+          "schema_version": 1,
+          "manifest_url": "fixtures/media/channel-a/index.m3u8",
+          "resume_position_ms": 12000,
+          "accepted": false,
+          "status": "duplicate",
+          "detail": "record_id already processed in this run; submission ignored"
+        }
+      ]
+    },
+    {
+      "snapshot_id": "snap-v2",
+      "schema_version": 2,
+      "load_ok": true,
+      "load_error": null,
+      "results": [
+        {
+          "record_id": "r-2001",
+          "schema_version": 2,
+          "manifest_url": "fixtures/media/channel-a/index.m3u8",
+          "resume_position_ms": 12340,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 12340 ms (segment seq 3) accepted under schema v2"
+        },
+        {
+          "record_id": "r-2002",
+          "schema_version": 2,
+          "manifest_url": "fixtures/media/channel-b/index.m3u8",
+          "resume_position_ms": 35507,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 35507 ms (segment seq 7) accepted under schema v2"
+        },
+        {
+          "record_id": "r-2003",
+          "schema_version": 2,
+          "manifest_url": "fixtures/media/channel-c/index.m3u8",
+          "resume_position_ms": 8125,
+          "accepted": true,
+          "status": "accepted",
+          "detail": "resume at 8125 ms (segment seq 2) accepted under schema v2"
+        },
+        {
+          "record_id": "r-2002",
+          "schema_version": 2,
+          "manifest_url": "fixtures/media/channel-b/index.m3u8",
+          "resume_position_ms": 35507,
+          "accepted": false,
+          "status": "duplicate",
+          "detail": "record_id already processed in this run; submission ignored"
+        }
+      ]
+    },
+    {
+      "snapshot_id": "truncated-control",
+      "schema_version": null,
+      "load_ok": false,
+      "load_error": "truncated snapshot fixtures/snapshots/v2_truncated_control.json: EOF while parsing a string at line 12 column 85",
+      "results": []
+    }
+  ],
+  "gst_probes": [
+    {
+      "record_id": "r-1001",
+      "manifest_url": "fixtures/media/channel-a/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    },
+    {
+      "record_id": "r-1002",
+      "manifest_url": "fixtures/media/channel-b/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    },
+    {
+      "record_id": "r-1003",
+      "manifest_url": "fixtures/media/channel-c/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    },
+    {
+      "record_id": "r-2001",
+      "manifest_url": "fixtures/media/channel-a/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    },
+    {
+      "record_id": "r-2002",
+      "manifest_url": "fixtures/media/channel-b/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    },
+    {
+      "record_id": "r-2003",
+      "manifest_url": "fixtures/media/channel-c/index.m3u8",
+      "element_factory": "hlsdemux2",
+      "probe_ok": true,
+      "detail": "pipeline reached PAUSED asynchronously (HLS manifest primed)"
+    }
+  ],
+  "journal_path": "evidence/final-001.journal.jsonl",
+  "report_path": "evidence/final-001.report.json",
+  "totals": {
+    "snapshots_loaded": 2,
+    "snapshots_failed": 1,
+    "records_seen": 8,
+    "accepted": 6,
+    "duplicates": 2,
+    "invalid": 0
+  }
+}
