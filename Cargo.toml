@@ -1,0 +1,45 @@
+[package]
+name = "blackframe-review"
+version = "0.1.0"
+edition = "2021"
+description = "Recoverable, reviewable black-frame detection with GStreamer and GTK4"
+license = "MIT"
+
+[features]
+default = ["desktop"]
+desktop = [
+    "dep:gtk",
+    "dep:gstreamer",
+    "dep:gstreamer-app",
+    "dep:gstreamer-video",
+]
+
+[lib]
+name = "blackframe_review"
+path = "src/lib.rs"
+
+[[bin]]
+name = "blackframe-review"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[dependencies]
+chrono = { version = "0.4", features = ["serde"] }
+hex = "0.4"
+png = "0.17"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+thiserror = "2.0"
+
+gtk = { package = "gtk4", version = "0.8", optional = true, features = ["v4_10"] }
+gstreamer = { version = "0.23", optional = true }
+gstreamer-app = { version = "0.23", optional = true }
+gstreamer-video = { version = "0.23", optional = true }
+
+[dev-dependencies]
+tempfile = "3.10"
+
+[profile.release]
+strip = true
+lto = "thin"

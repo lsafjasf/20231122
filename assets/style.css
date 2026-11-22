@@ -1,0 +1,155 @@
+window {
+  background: #0f1218;
+  color: #e6e9f0;
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", "Ubuntu", sans-serif;
+}
+headerbar {
+  background: #161a22;
+  border-bottom: 1px solid #2a3040;
+  box-shadow: none;
+}
+.app-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.sidebar {
+  background: #12161e;
+  border-right: 1px solid #252b38;
+}
+.content {
+  background: #0f1218;
+}
+.panel {
+  background: #171c25;
+  border: 1px solid #29303e;
+  border-radius: 10px;
+}
+.panel-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5f7fb;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.muted {
+  color: #8f98aa;
+}
+.tiny {
+  font-size: 11px;
+}
+.mono {
+  font-family: "DejaVu Sans Mono", "Noto Sans CJK SC", monospace;
+  font-size: 11px;
+}
+.chip {
+  border-radius: 99px;
+  padding: 2px 9px;
+  font-size: 11px;
+  background: #242b38;
+  color: #aeb8cb;
+}
+.chip-ok {
+  background: #173a2c;
+  color: #6ee7b7;
+}
+.chip-warn {
+  background: #432b16;
+  color: #fbbf24;
+}
+.chip-auto {
+  background: #3a1c24;
+  color: #fda4af;
+}
+.chip-manual {
+  background: #182c4a;
+  color: #93c5fd;
+}
+.banner {
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #1c2534;
+  color: #cbd5e1;
+}
+.banner-ok {
+  background: #123023;
+  color: #86efac;
+}
+.banner-warn {
+  background: #352713;
+  color: #fcd34d;
+}
+.banner-error {
+  background: #3a171c;
+  color: #fca5a5;
+}
+.primary {
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+}
+.primary:hover {
+  background: #3b82f6;
+}
+.danger {
+  color: #fda4af;
+  background: #3b1a22;
+}
+.timeline-head {
+  color: #7f8a9e;
+  font-size: 11px;
+  font-weight: 700;
+}
+.timeline-row {
+  background: #151a23;
+  border: 1px solid #242b38;
+  border-radius: 7px;
+  padding: 7px 9px;
+  color: #dce4f2;
+}
+.timeline-row label {
+  color: #dce4f2;
+}
+.timeline-row:hover {
+  background: #1d2431;
+  border-color: #3b465a;
+}
+.timeline-selected {
+  background: #1d2b45;
+  border-color: #3b82f6;
+}
+.verdict {
+  font-size: 24px;
+  font-weight: 800;
+}
+.auto-card {
+  border-left: 4px solid #f43f5e;
+}
+.manual-card {
+  border-left: 4px solid #3b82f6;
+}
+.failure-card {
+  border-left: 4px solid #f97316;
+}
+.keyframe {
+  background: #090b0f;
+  border: 1px solid #2a3040;
+  border-radius: 6px;
+}
+.metric {
+  font-size: 20px;
+  font-weight: 800;
+}
+.statusbar {
+  background: #11151c;
+  border-top: 1px solid #252b38;
+  color: #8f98aa;
+  font-size: 11px;
+}
+.evidence-row {
+  background: #131820;
+  border-radius: 6px;
+  padding: 6px 8px;
+}

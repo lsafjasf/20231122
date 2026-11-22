@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "report_id": "legacy-report-0040",
+  "created_at": "2026-11-20T23:58:00.000Z",
+  "file": "/recovered/2026-11-21/camera-A.recx",
+  "file_sha256": "6f1c5d0a9e6f9b08a7f746cf4fca8d2c152f1c3cb3c2a73cc53b88e0d0411c2a",
+  "recovered": true,
+  "threshold": 10,
+  "minimum_duration": 0.5,
+  "sample_fps": 5,
+  "black_segments": [
+    {
+      "start": 4.6,
+      "end": 6.8,
+      "track": 0,
+      "mean_luma": 0.003,
+      "lowest_luma": 0.001
+    },
+    {
+      "start": 15.2,
+      "end": 16.2,
+      "track": 0,
+      "mean_luma": 0.002,
+      "lowest_luma": 0.001
+    }
+  ],
+  "reviewed": true,
+  "reviewer": "恢复值班组",
+  "review_note": "旧系统导出；源文件已从恢复盘取回，等待新流程重放。",
+  "unknown_extension": "recx"
+}
