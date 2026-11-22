@@ -1,0 +1,32 @@
+{
+  "format": "audio-plc-assessment",
+  "format_version": 2,
+  "case_id": "failure-missing-audio",
+  "audio": {
+    "path": "not-present.rplx"
+  },
+  "tracks": [
+    {
+      "id": "mic",
+      "index": 0,
+      "frame_size": 960
+    }
+  ],
+  "processing": [
+    {
+      "id": "plc",
+      "parameters": {
+        "algorithm": "wsola"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "loss-1",
+      "timestamp_ms": 1000,
+      "track_id": "mic",
+      "frame": 50,
+      "processing_id": "plc"
+    }
+  ]
+}
