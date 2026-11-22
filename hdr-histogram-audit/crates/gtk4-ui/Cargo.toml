@@ -1,0 +1,18 @@
+[package]
+name = "gtk4-ui"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "hdr-histogram-audit"
+path = "src/main.rs"
+
+[dependencies]
+audit-core = { workspace = true }
+gst-source = { workspace = true }
+gtk = { workspace = true }
+gstreamer = { workspace = true }
+serde_json = { workspace = true }
+serde = { workspace = true }
+gstreamer-app = { workspace = true }
