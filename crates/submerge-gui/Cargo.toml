@@ -1,0 +1,13 @@
+[package]
+name = "submerge-gui"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "GTK4 + GStreamer subtitle timeline merge UI"
+
+[dependencies]
+gstreamer = "0.25.4"
+gstreamer-pbutils = "0.25.4"
+gstreamer-video = "0.25.4"
+gtk4 = { version = "0.11.5", features = ["v4_10"] }
+submerge-core.workspace = true

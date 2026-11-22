@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/submerge-core",
+    "crates/submerge-cli",
+    "crates/submerge-gui",
+]
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+submerge-core = { path = "crates/submerge-core" }
