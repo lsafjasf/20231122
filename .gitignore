@@ -1,0 +1,11 @@
+/target
+/artifacts/queue_session.json
+/artifacts/queue_session.json.bak
+/artifacts/queue_session.json.corrupt-*
+/artifacts/workspace.json
+/artifacts/demo
+/artifacts/runs
+/artifacts/exports
+/demo
+*.webm
+*.png.tmp

@@ -1,0 +1,22 @@
+[package]
+name = "queue-priority-corrector"
+version = "0.1.0"
+edition = "2024"
+description = "双设备时钟不同步场景下的转码队列局部修正工具"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+gstreamer = "0.23"
+gtk4 = { version = "0.10", features = ["v4_12"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+thiserror = "2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+strip = true
+lto = "thin"
